@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import { increment, decrement, incrementByAmount } from '../redux/feature/feature-counter';
 
 const MotionBox = motion(Box); 
-
 function Home() {
   const dispatch = useDispatch();
   const count = useSelector(state => state.counter.value);
