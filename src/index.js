@@ -13,6 +13,7 @@ root.render(
       <ChakraProvider>
         <App />
       </ChakraProvider>
+      
     </ReactReduxProvider>
   </React.StrictMode>
 );
