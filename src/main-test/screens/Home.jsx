@@ -19,6 +19,9 @@ function Home() {
       <Button onClick={() => dispatch(increment())} mr={2}>Increment</Button>
       <Button onClick={() => dispatch(decrement())} mr={2}>Decrement</Button>
       <Button onClick={() => dispatch(incrementByAmount(5))}>Increment by 5</Button>
+      <h1 className="text-3xl font-bold underline">
+      Hello world!
+    </h1>
     </MotionBox>
   );
 }
