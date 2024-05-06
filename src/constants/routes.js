@@ -1,3 +1,4 @@
 export const AuthRoutes = {
-    otp :"/otp"
+    Loginotp :"/login-otp",
+    Register :"/register"
 }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TextField, Box, Typography } from "@mui/material";
 import { validateInput } from "../../utils/validator";
-function Home() {
+function Login() {
   const [input, setInput] = useState("");
   const [inputError, setInputError] = useState("");
 
@@ -38,7 +38,7 @@ function Home() {
               <Box sx={{ display: "flex", alignItems: "center" }}>
                 <Typography>
                   <img
-                    src="../trendify.png"
+                    src="../images/trendify.png"
                     alt=""
                     style={{ width: "60px", height: "60px" }}
                   />
@@ -124,17 +124,17 @@ function Home() {
                   }}
                 >
                   <img
-                    src="../Frame 3.png"
+                    src="../images/facebook.png"
                     alt=""
                     style={{ width: "150px", height: "50px" }}
                   />
                   <img
-                    src="../Frame 4.png"
+                    src="../images/google.png"
                     alt=""
                     style={{ width: "150px", height: "50px" }}
                   />
                   <img
-                    src="../Frame 5.png"
+                    src="../images/apple.png"
                     alt=""
                     style={{ width: "150px", height: "50px" }}
                   />
@@ -160,7 +160,7 @@ function Home() {
             <Typography class="col-6">
               <Box>
                 {" "}
-                <img src="../login 1.png" alt="" style={{ height: "625px" }} />
+                <img src="../images/login.png" alt="" style={{ height: "625px" }} />
               </Box>
             </Typography>
           </Typography>
@@ -170,4 +170,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Login;

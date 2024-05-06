@@ -1,7 +1,8 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AuthNavigation from "./AuthNavigation";
-import Home from "../auth/Home";
+import Login from "../auth/Login";
+
 function Main() {
   return (
     <BrowserRouter>

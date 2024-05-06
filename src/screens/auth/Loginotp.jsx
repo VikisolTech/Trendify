@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { Box, Typography, Button } from '@mui/material';
-export function Otp() {
+export function Loginotp() {
   const inputs = useRef([]);
   const [error, setError] = useState(false);
   const [code, setCode] = useState(['', '', '', '', '', '']);
@@ -52,14 +52,11 @@ export function Otp() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Hardcoded OTP for demonstration
-    const expectedOTP = '123456';
+  const expectedOTP = '123456';
     const enteredOTP = code.join('');
     if (enteredOTP === expectedOTP) {
       console.log('OTP is correct');
-      // Reset error state if OTP is correct
       setError(false);
-      // Here you can proceed with further actions, e.g., navigate to the next screen
     } else {
       console.log('OTP is incorrect');
       // Set error state if OTP is incorrect
@@ -79,7 +76,7 @@ export function Otp() {
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
 
                 <Typography>
-                  <img src="../trendify.png" alt="" style={{ width: "60px", height: "60px" }} />
+                  <img src="../images/trendify.png" alt="" style={{ width: "60px", height: "60px" }} />
                 </Typography>
                 <h4 variant="h6">Trendify</h4>
               </Box>
@@ -175,7 +172,7 @@ export function Otp() {
 
             </Typography>
             <Typography class="col-6">
-              <Box>   <img src='../otpscreen.png' alt="" style={{  height: "625px" }} /></Box>
+              <Box>   <img src='../images/otpscreen.png' alt="" style={{  height: "625px" }} /></Box>
             </Typography>
           </Typography>
 
@@ -187,4 +184,4 @@ export function Otp() {
   );
 }
 
-export default Otp;
+export default Loginotp;
