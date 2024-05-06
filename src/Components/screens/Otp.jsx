@@ -69,18 +69,18 @@ export function Otp() {
 
 
   return (
-    <div className='container-fluid'>
-      <div className="card" style={{ margin: "50px", background: "#FFFFFF" }}>
+    <Typography className='container-fluid'>
+    <Typography className="card" style={{ margin: "50px",borderRadius: "20px", background: "#FFFFFF", boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)" }}>
 
-        <div className="card-body" style={{ height: "650px", padding: "25px" }}>
+        <Typography className="card-body" style={{ height: "650px", padding: "25px" }}>
 
-          <div class="row">
-            <div class="col-6">
+          <Typography class="row">
+            <Typography class="col-6">
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
 
-                <div>
+                <Typography>
                   <img src="../trendify.png" alt="" style={{ width: "60px", height: "60px" }} />
-                </div>
+                </Typography>
                 <h4 variant="h6">Trendify</h4>
               </Box>
               <Box sx={{ ml: "60px", paddingTop: "18%", }}>
@@ -91,12 +91,12 @@ export function Otp() {
                   fontSize: "15px"
 
                 }}>
-                  <p style={{ color: "#000000" }}>Please enter the code sent to 7024xxxxxx.<span style={{ color: "#C09562" }}> Change</span></p>
+                  <Typography style={{ color: "#000000" }}>Please enter the code sent to 7024xxxxxx.<span style={{ color: "#C09562" }}> Change</span></Typography>
 
                 </Box>
                 <form id="otp-form" onSubmit={handleSubmit}>
                   <Box sx={{ marginTop: "20px" }}>
-                    <div className="flex items-center justify-center gap-2">
+                    <Typography className="flex items-center justify-center gap-2">
                       {code.map((digit, index) => (
                         <input
                           key={index}
@@ -111,14 +111,14 @@ export function Otp() {
                           ref={(el) => (inputs.current[index] = el)}
                         />
                       ))}
-                    </div>
+                    </Typography>
                   </Box>
                   {/* Error message */}
                   {error && (
                     <Box sx={{ fontSize:"12px", marginTop: "10px"}}>
-                      <div align="center" style={{ color: "#FF0000" }}>
+                      <Typography align="center" style={{ color: "#FF0000" }}>
                         Please enter valid code !
-                      </div>
+                      </Typography>
                     </Box>
 
                   )}
@@ -159,7 +159,7 @@ export function Otp() {
                   marginTop: "25px",
                   fontSize: "15px"
                 }}>
-                  <p style={{ color: "#000000" }}>Not received your code? <span style={{ color: "#C09562" }}>00:08</span></p>
+                  <Typography style={{ color: "#000000" }}>Not received your code? <span style={{ color: "#C09562" }}>00:08</span></Typography>
 
                 </Box>
                 <Box sx={{
@@ -167,23 +167,23 @@ export function Otp() {
                   justifyContent: "center",
                   fontSize: "15px"
                 }}>
-                  <p style={{ color: "#000000" }}>Not received your code? <span style={{ color: "#C09562", cursor: "pointer" }}>Resend Code</span></p>
+                  <Typography style={{ color: "#000000" }}>Not received your code? <span style={{ color: "#C09562", cursor: "pointer" }}>Resend Code</span></Typography>
 
                 </Box>
 
               </Box>
 
-            </div>
-            <div class="col-6">
+            </Typography>
+            <Typography class="col-6">
               <Box>   <img src='../otpscreen.png' alt="" style={{  height: "625px" }} /></Box>
-            </div>
-          </div>
+            </Typography>
+          </Typography>
 
 
-        </div>
-      </div>
+        </Typography>
+      </Typography>
 
-    </div>
+    </Typography>
   );
 }
 

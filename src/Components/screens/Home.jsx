@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Typography, Button } from '@mui/material';
+import { TextField, Box, Typography } from '@mui/material';
 
 
 function Home() {
@@ -30,34 +30,35 @@ function Home() {
     setInput(event.target.value);
   };
   return (
-    <div className='container-fluid'>
-      <div className="card" style={{ margin: "50px", background: "#FFFFFF" }}>
+    <Typography className='container-fluid'>
+    <Typography className="card" style={{ margin: "50px", borderRadius: "20px",background: "#FFFFFF", boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)" }}>
 
-        <div className="card-body" style={{ height: "650px", padding: "25px" }}>
+        <Typography className="card-body" style={{ height: "650px", padding: "25px"  }}>
 
-          <div class="row">
-            <div class="col-6">
+          <Typography class="row">
+            <Typography class="col-6">
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
 
-                <div>
+                <Typography>
                   <img src="../trendify.png" alt="" style={{ width: "60px", height: "60px" }} />
-                </div>
+                </Typography>
                 <h4 variant="h6">Trendify</h4>
               </Box>
               <Box sx={{ ml: "60px", paddingTop: "50px" }}>
                 <h3 sx={{ marginBottom: "20px" }} >Welcome back! Glad to see you, Again!</h3>
                 <form onSubmit={handleSubmit}>
                   <Box sx={{ marginTop: "25px" }}>
-                    <label htmlFor="exampleInputEmail1" className="form-label">Email or Phone Number</label>
-                    <input
-                      type="text"
-                      className="form-control"
+                    <TextField
                       id="exampleInputEmail1"
-                      aria-describedby="emailHelp"
+                      label="Email or Phone Number"
+                      fullWidth
+                      variant="standard"
+                      name="email"
                       value={input}
                       onChange={handleInputChange}
+                      error={!!inputError}
+                      helperText={inputError}
                     />
-                    {inputError && <p style={{ color: 'red', fontSize: "12px" }}>{inputError}</p>}
                   </Box>
                   <Box
                     sx={{
@@ -94,10 +95,10 @@ function Home() {
                   marginTop: "20px"
                 }}
                 >
-                  <p sx={{ color: "#000000", Text: "20px" }}>OR</p>
+                  <Typography sx={{ color: "#000000", Text: "20px" }}>OR</Typography>
                 </Box>
 
-                <Box sx={{ display: "flex", justifyContent: "center", marginTop: "10px", justifyContent: "space-evenly", cursor: "pointer"  , }}>
+                <Box sx={{ display: "flex", justifyContent: "center", marginTop: "10px", justifyContent: "space-evenly", cursor: "pointer", }}>
                   <img src="../Frame 3.png" alt="" style={{ width: "150px", height: "50px" }} />
                   <img src="../Frame 4.png" alt="" style={{ width: "150px", height: "50px" }} />
                   <img src="../Frame 5.png" alt="" style={{ width: "150px", height: "50px" }} />
@@ -107,24 +108,24 @@ function Home() {
                   display: "flex",
                   justifyContent: "center",
                   marginTop: "25px",
-                  fontSize:"15px"
+                  fontSize: "15px"
                 }}>
-                  <p style={{ color: "#000000" }}>Don’t have an account yet? <span  style={{ color: "#C09562",cursor:"pointer" }}>Sign up for free</span></p>
+                  <Typography style={{ color: "#000000" }}>Don’t have an account yet? {""}<span style={{ color: "#C09562", cursor: "pointer" }}>Sign up for free</span></Typography>
                 </Box>
 
               </Box>
 
-            </div>
-            <div class="col-6">
-              <Box>   <img src='../login 1.png' alt="" style={{  height: "625px" }} /></Box>
-            </div>
-          </div>
+            </Typography>
+            <Typography class="col-6">
+              <Box>   <img src='../login 1.png' alt="" style={{ height: "625px" }} /></Box>
+            </Typography>
+          </Typography>
 
 
-        </div>
-      </div>
+        </Typography>
+      </Typography>
 
-    </div>
+    </Typography>
   );
 }
 
