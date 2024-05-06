@@ -57,7 +57,7 @@ function Register() {
               <Box sx={{ display: "flex", alignItems: "center" }}>
                 <Typography>
                   <img
-                    src="../images/trendify.png"
+                    src="../assests/trendify.png"
                     alt=""
                     style={{ width: "60px", height: "60px" }}
                   />
@@ -153,17 +153,17 @@ function Register() {
                   }}
                 >
                   <img
-                    src="../images/facebook.png"
+                    src="../assests/facebook.png"
                     alt=""
                     style={{ width: "150px", height: "50px" }}
                   />
                   <img
-                    src="../images/google.png"
+                    src="../assests/google.png"
                     alt=""
                     style={{ width: "150px", height: "50px" }}
                   />
                   <img
-                    src="../images/apple.png"
+                    src="../assests/apple.png"
                     alt=""
                     style={{ width: "150px", height: "50px" }}
                   />
@@ -210,7 +210,7 @@ function Register() {
             <Typography class="col-6">
               <Box>
                 {" "}
-                <img src="../images/register.png" alt="" style={{ height: "645px" }} />
+                <img src="../assests/register.png" alt="" style={{ height: "645px" }} />
               </Box>
             </Typography>
           </Typography>

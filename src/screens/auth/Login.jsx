@@ -38,7 +38,7 @@ function Login() {
               <Box sx={{ display: "flex", alignItems: "center" }}>
                 <Typography>
                   <img
-                    src="../images/trendify.png"
+                    src="../assests/trendify.png"
                     alt=""
                     style={{ width: "60px", height: "60px" }}
                   />
@@ -124,17 +124,17 @@ function Login() {
                   }}
                 >
                   <img
-                    src="../images/facebook.png"
+                    src="../assests/facebook.png"
                     alt=""
                     style={{ width: "150px", height: "50px" }}
                   />
                   <img
-                    src="../images/google.png"
+                    src="../assests/google.png"
                     alt=""
                     style={{ width: "150px", height: "50px" }}
                   />
                   <img
-                    src="../images/apple.png"
+                    src="../assests/apple.png"
                     alt=""
                     style={{ width: "150px", height: "50px" }}
                   />
@@ -160,7 +160,7 @@ function Login() {
             <Typography class="col-6">
               <Box>
                 {" "}
-                <img src="../images/login.png" alt="" style={{ height: "625px" }} />
+                <img src="../assests/login.png" alt="" style={{ height: "625px" }} />
               </Box>
             </Typography>
           </Typography>

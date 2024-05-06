@@ -76,7 +76,7 @@ export function Loginotp() {
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
 
                 <Typography>
-                  <img src="../images/trendify.png" alt="" style={{ width: "60px", height: "60px" }} />
+                  <img src="../assests/trendify.png" alt="" style={{ width: "60px", height: "60px" }} />
                 </Typography>
                 <h4 variant="h6">Trendify</h4>
               </Box>
@@ -172,7 +172,7 @@ export function Loginotp() {
 
             </Typography>
             <Typography class="col-6">
-              <Box>   <img src='../images/otpscreen.png' alt="" style={{  height: "625px" }} /></Box>
+              <Box>   <img src='../assests/otpscreen.png' alt="" style={{  height: "625px" }} /></Box>
             </Typography>
           </Typography>
 
