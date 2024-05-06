@@ -10,7 +10,6 @@ function Register() {
     email: "",
   });
   const [errors, setErrors] = useState({});
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -23,7 +22,6 @@ function Register() {
     e.preventDefault();
     let errors = {};
 
-    // Simple validation
     if (!formData.firstName.trim()) {
       errors.firstName = "First name is required";
     }
