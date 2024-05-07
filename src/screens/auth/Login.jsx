@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { TextField, Box, Typography } from "@mui/material";
 import { validateInput } from "../../utils/validator";
+import { mainContent } from "../../constants/content/mainContent";
+import { loginContent } from "../../constants/content/LoginContent";
 function Login() {
   const [input, setInput] = useState("");
   const [inputError, setInputError] = useState("");
@@ -38,12 +40,12 @@ function Login() {
               <Box sx={{ display: "flex", alignItems: "center" }}>
                 <Typography>
                   <img
-                    src="../assests/trendify.png"
+                    src={mainContent.appLogo}
                     alt=""
                     style={{ width: "60px", height: "60px" }}
                   />
                 </Typography>
-                <h4 variant="h6">Trendify</h4>
+                <h4 variant="h6">{mainContent.appName}</h4>
               </Box>
               <Box sx={{ ml: "60px", paddingTop: "50px" }}>
                 <h3 sx={{ marginBottom: "20px" }}>
@@ -160,7 +162,11 @@ function Login() {
             <Typography class="col-6">
               <Box>
                 {" "}
-                <img src="../assests/login.png" alt="" style={{ height: "625px" }} />
+                <img
+                  src={loginContent.loginImg}
+                  alt=""
+                  style={{ height: "625px" }}
+                />
               </Box>
             </Typography>
           </Typography>

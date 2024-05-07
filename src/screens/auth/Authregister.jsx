@@ -152,7 +152,6 @@ function Register() {
                   />
                   
                 </Box>
-
                 <Box
                   sx={{
                     display: "flex",
@@ -193,7 +192,7 @@ function Register() {
             <Typography class="col-6">
               <Box>
                 {" "}
-                <img src="../assests/register.png" alt="" style={{ height: "645px" }} />
+                <img src="../assests/register.png" alt="img" style={{ height: "645px" }} />
               </Box>
             </Typography>
           </Typography>
