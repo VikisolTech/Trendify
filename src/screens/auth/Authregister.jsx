@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, Typography, Button } from "@mui/material";
 import TextField from "@mui/material/TextField";
-
+import { validateRegistration } from "../../utils/validator";
 function Register() {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -10,6 +10,7 @@ function Register() {
     email: "",
   });
   const [errors, setErrors] = useState({});
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -20,31 +21,13 @@ function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let errors = {};
-
-    if (!formData.firstName.trim()) {
-      errors.firstName = "First name is required";
-    }
-    if (!formData.lastName.trim()) {
-      errors.lastName = "Last name is required";
-    }
-    if (!formData.phoneNumber.trim()) {
-      errors.phoneNumber = "Phone number is required";
-    }
-    if (!formData.email.trim()) {
-      errors.email = "Email is required";
-    } else if (!/^\S+@\S+\.\S+$/.test(formData.email)) {
-      errors.email = "Email is invalid";
-    }
-
+    const errors = validateRegistration(formData); // Call the validation function
     setErrors(errors);
 
     if (Object.keys(errors).length === 0) {
-      // Form is valid, you can proceed with registration
       console.log("Form submitted:", formData);
     }
   };
-
   return (
     <Typography className="container-fluid">
       <Typography className="card" style={{ margin: "50px",borderRadius: "20px", background: "#FFFFFF", boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)" }}>

@@ -1,67 +1,32 @@
 import { useState, useRef } from 'react';
 import { Box, Typography, Button } from '@mui/material';
+import { validateOTP } from '../../utils/validator';
 export function Loginotp() {
   const inputs = useRef([]);
   const [error, setError] = useState(false);
   const [code, setCode] = useState(['', '', '', '', '', '']);
 
   const handleKeyDown = (e, index) => {
-    if (
-      !/^[0-9]{1}$/.test(e.key)
-      && e.key !== 'Backspace'
-      && e.key !== 'Delete'
-      && e.key !== 'Tab'
-      && !e.metaKey
-    ) {
-      e.preventDefault();
-    }
-
-    if (e.key === 'Delete' || e.key === 'Backspace') {
-      if (index > 0) {
-        inputs.current[index - 1].focus();
-      }
-    }
+    
   };
 
   const handleInput = (e, index) => {
-    const newCode = [...code];
-    newCode[index] = e.target.value;
-    setCode(newCode);
-
-    if (e.target.value && index < code.length - 1) {
-      inputs.current[index + 1].focus();
-    }
+    // Your existing code for handling input
   };
 
   const handleFocus = (e) => {
-    e.target.select();
+    // Your existing code for handling focus
   };
 
   const handlePaste = (e) => {
-    e.preventDefault();
-    const text = e.clipboardData.getData('text');
-    if (!new RegExp(`^[0-9]{${inputs.current.length}}$`).test(text)) {
-      return;
-    }
-    const digits = text.split('').slice(0, inputs.current.length);
-    const newCode = digits.map((digit) => digit || '');
-    setCode(newCode);
+    
   };
-
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
-  const expectedOTP = '123456';
     const enteredOTP = code.join('');
-    if (enteredOTP === expectedOTP) {
-      console.log('OTP is correct');
-      setError(false);
-    } else {
-      console.log('OTP is incorrect');
-      // Set error state if OTP is incorrect
-      setError(true);
-    }
+    const validation = validateOTP(enteredOTP); 
+    setError(!validation.isValid); 
   };
 
 
