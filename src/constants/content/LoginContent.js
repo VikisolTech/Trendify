@@ -20,7 +20,7 @@ export const RegisterContent = {
   privancy:" privancy policy",
   continuingIagree:"By continuing, I agree to the",
   TermsUse:"Terms of Use",
-  RegisterContent: "Register"
+  Register: "Register"
 };
 
 export const OtpContent = {

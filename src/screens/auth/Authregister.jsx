@@ -71,11 +71,11 @@ function Register() {
   };
 
   return (
-    <Typography className="container-fluid">
-      <Typography className="card" style={{ margin: "50px", borderRadius: "20px", background: "#FFFFFF", boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)" }}>
-        <Typography className="card-body" style={{ height: "670px", padding: "25px" }}>
-          <Typography class="row">
-            <Typography class="col-6">
+    <div className="container-fluid">
+      <div className="card" style={{ margin: "50px", borderRadius: "20px", background: "#FFFFFF", boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)" }}>
+        <div className="card-body" style={{ padding: "25px" }}>
+          <div className="row">
+            <div className="col-md-6">
               <Box sx={{ display: "flex", alignItems: "center" }}>
                 <Typography>
                   <img src={mainContent.appLogo} alt="logo" style={mainContent.style} />
@@ -129,7 +129,7 @@ function Register() {
                     error={!!email.error}
                     helperText={email.error}
                   />
-                  <Box style={{ textAlign: "center", marginTop: "15px" }}>
+                  <Box sx={{ textAlign: "center", marginTop: "15px", display: "flex", justifyContent: "center", alignItems: "center" }}>
                     <Button
                       type="submit"
                       variant="contained"
@@ -137,47 +137,45 @@ function Register() {
                         backgroundColor: "#C09562",
                         color: "white",
                         borderRadius: "20px",
-                        width: "30%",
+                        width: "150px",
                         transition: "background-color 0.3s ease",
                       }}
                     >
-                      {RegisterContent.RegisterContent}
+                      {RegisterContent.Register}
                     </Button>
                   </Box>
+
                 </form>
-
-                <Box sx={{ display: "flex", justifyContent: "center", marginTop: "10px" }}>
-                  <Typography sx={{ color: "#000000", Text: "20px" }}> {loginContent.or}</Typography>
-                </Box>
-
-                <Box sx={{ display: "flex", justifyContent: "center", justifyContent: "space-evenly", cursor: "pointer" }}>
-                  <img src={loginContent.FacebookImg} alt="facebook" style={loginContent.style} />
-                  <img src={loginContent.googleImg} alt="google" style={loginContent.style} />
-                  <img src={loginContent.appleImg} alt="apple" style={loginContent.style} />
-                </Box>
-
-                <Box sx={{ display: "flex", justifyContent: "center", marginTop: "10px", fontSize: "15px" }}>
-                  <Typography style={{ color: "#000000" }}> {RegisterContent.doYouHaveaccount} <span style={{ color: "#C09562", cursor: "pointer" }}>Login Now</span></Typography>
-                </Box>
-
-                <Box sx={{ display: "flex", justifyContent: "center", fontSize: "15px", marginTop: "5px" }}>
-                  <Typography style={{ color: "#000000" }}>
-                    {RegisterContent.continuingIagree}
-                    <span style={{ color: "#C09562", cursor: "pointer" }}>{RegisterContent.TermsUse}</span> and
-                    <span style={{ color: "#C09562", cursor: "pointer" }}>{RegisterContent.privancy}</span>
-                  </Typography>
-                </Box>
               </Box>
-            </Typography>
-            <Typography class="col-6">
-              <Box>
-                <img src={RegisterContent.registerLogo} alt="img" style={{ height: "645px" }} />
+              {/* Social Media Icons and Login link */}
+              <Box sx={{ display: "flex", justifyContent: "center", marginTop: "10px", fontSize: "15px" }}>
+                <Typography style={{ color: "#000000" }}>{loginContent.or}</Typography>
               </Box>
-            </Typography>
-          </Typography>
-        </Typography>
-      </Typography>
-    </Typography>
+              <Box sx={{ display: "flex", justifyContent: "center", justifyContent: "space-evenly", cursor: "pointer" }}>
+                <img src={loginContent.FacebookImg} alt="facebook" style={loginContent.style} />
+                <img src={loginContent.googleImg} alt="google" style={loginContent.style} />
+                <img src={loginContent.appleImg} alt="apple" style={loginContent.style} />
+              </Box>
+              <Box sx={{ display: "flex", justifyContent: "center", marginTop: "10px", fontSize: "15px" }}>
+                <Typography style={{ color: "#000000" }}>{RegisterContent.doYouHaveaccount} <span style={{ color: "#C09562", cursor: "pointer" }}>{loginContent.loginNow}</span></Typography>
+              </Box>
+              {/* Terms and conditions */}
+              <Box sx={{ display: "flex", justifyContent: "center", fontSize: "15px", marginTop: "5px" }}>
+                <Typography style={{ color: "#000000" }}>
+                  {RegisterContent.continuingIagree}
+                  <span style={{ color: "#C09562", cursor: "pointer" }}>{RegisterContent.TermsUse}</span> {RegisterContent.and}
+                  <span style={{ color: "#C09562", cursor: "pointer" }}>{RegisterContent.privacy}</span>
+                </Typography>
+              </Box>
+            </div>
+            {/* Image column */}
+            <div className="col-md-6 d-none d-md-block">
+              <img src={RegisterContent.registerLogo} alt="img" style={{ height: "645px" }} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
