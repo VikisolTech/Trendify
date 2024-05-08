@@ -139,6 +139,7 @@ function Register() {
                         borderRadius: "20px",
                         width: "150px",
                         transition: "background-color 0.3s ease",
+                        marginRight:"10%",
                       }}
                     >
                       {RegisterContent.Register}

@@ -65,7 +65,7 @@ function Login() {
                         justifyContent: "center",
                         alignItems: "center",
                         width: "150px", 
-                        marginRight:"10%",
+                        
                         transition: "background-color 0.3s ease",
                         "&:hover": { backgroundColor: "#d7a072" },
                       }}
