@@ -1,5 +1,5 @@
 export const mainContent = {
-  appName: "Trendifs",
+  appName: "Trendify",
   appLogo: "../assets/trendify.png",
   style: { width: "60px", height: "60px" }
 };

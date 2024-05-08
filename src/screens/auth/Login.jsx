@@ -64,7 +64,8 @@ function Login() {
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        width: "100%", // Adjusted for responsiveness
+                        width: "150px", 
+                        marginRight:"10%",
                         transition: "background-color 0.3s ease",
                         "&:hover": { backgroundColor: "#d7a072" },
                       }}
@@ -79,7 +80,7 @@ function Login() {
                   </Box>
                 </form>
                 <Box sx={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
-                  <Typography sx={{ color: "#000000", Text: "20px" }}>{loginContent.or}</Typography>
+                  <Typography sx={{ color: "#000000", Text: "20px", }}>{loginContent.or}</Typography>
                 </Box>
                 <Box sx={{ display: "flex", justifyContent: "center", marginTop: "10px", justifyContent: "space-evenly", cursor: "pointer" }}>
                   <img src={loginContent.FacebookImg} alt="facebook" style={loginContent.style} />
