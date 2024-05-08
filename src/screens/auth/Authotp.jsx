@@ -1,6 +1,8 @@
 import { useState, useRef } from 'react';
 import { Box, Typography, Button } from '@mui/material';
 import { validateOTP } from '../../utils/validator';
+import { mainContent } from '../../constants/content/mainContent';
+import { OtpContent, } from '../../constants/content/LoginContent';
 export function Loginotp() {
   const inputs = useRef([]);
   const [error, setError] = useState(false);
@@ -11,11 +13,11 @@ export function Loginotp() {
   };
 
   const handleInput = (e, index) => {
-    // Your existing code for handling input
+    
   };
 
   const handleFocus = (e) => {
-    // Your existing code for handling focus
+    
   };
 
   const handlePaste = (e) => {
@@ -41,9 +43,9 @@ export function Loginotp() {
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
 
                 <Typography>
-                  <img src="../assests/trendify.png" alt="" style={{ width: "60px", height: "60px" }} />
+                  <img src={mainContent.appLogo} alt="logo" style={mainContent.style} />
                 </Typography>
-                <h4 variant="h6">Trendify</h4>
+                <h4 variant="h6">{mainContent.appName}</h4>
               </Box>
               <Box sx={{ ml: "60px", paddingTop: "18%", }}>
                 <Box sx={{
@@ -53,7 +55,7 @@ export function Loginotp() {
                   fontSize: "15px"
 
                 }}>
-                  <Typography style={{ color: "#000000" }}>Please enter the code sent to 7024xxxxxx.<span style={{ color: "#C09562" }}> Change</span></Typography>
+                  <Typography style={{ color: "#000000" }}>{OtpContent.phoneNumber}<span style={{ color: "#C09562" }}> Change</span></Typography>
 
                 </Box>
                 <form id="otp-form" onSubmit={handleSubmit}>
@@ -75,11 +77,10 @@ export function Loginotp() {
                       ))}
                     </Typography>
                   </Box>
-                  {/* Error message */}
                   {error && (
                     <Box sx={{ fontSize:"12px", marginTop: "10px"}}>
                       <Typography align="center" style={{ color: "#FF0000" }}>
-                        Please enter valid code !
+                      {OtpContent.validCode}
                       </Typography>
                     </Box>
 
@@ -121,7 +122,7 @@ export function Loginotp() {
                   marginTop: "25px",
                   fontSize: "15px"
                 }}>
-                  <Typography style={{ color: "#000000" }}>Not received your code? <span style={{ color: "#C09562" }}>00:08</span></Typography>
+                  <Typography style={{ color: "#000000" }}>{OtpContent.received} <span style={{ color: "#C09562" }}>{OtpContent.time}</span></Typography>
 
                 </Box>
                 <Box sx={{
@@ -129,7 +130,7 @@ export function Loginotp() {
                   justifyContent: "center",
                   fontSize: "15px"
                 }}>
-                  <Typography style={{ color: "#000000" }}>Not received your code? <span style={{ color: "#C09562", cursor: "pointer" }}>Resend Code</span></Typography>
+                  <Typography style={{ color: "#000000" }}>{OtpContent.received} <span style={{ color: "#C09562", cursor: "pointer" }}>{OtpContent.Resend}</span></Typography>
 
                 </Box>
 
@@ -137,7 +138,7 @@ export function Loginotp() {
 
             </Typography>
             <Typography class="col-6">
-              <Box>   <img src='../assests/otpscreen.png' alt="" style={{  height: "625px" }} /></Box>
+              <Box>   <img src={OtpContent.OtpImg} alt="" style={{  height: "625px" }} /></Box>
             </Typography>
           </Typography>
 

@@ -1,58 +1,89 @@
 import React, { useState } from "react";
 import { Box, Typography, Button } from "@mui/material";
 import TextField from "@mui/material/TextField";
-import { validateRegistration } from "../../utils/validator";
-function Register() {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    phoneNumber: "",
-    email: "",
-  });
-  const [errors, setErrors] = useState({});
+import { nameValidator, emailValidator, phoneValidator } from "../../utils/validator";
+import { mainContent } from "../../constants/content/mainContent";
+import { RegisterContent } from "../../constants/content/LoginContent";
+import { loginContent } from "../../constants/content/LoginContent";
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+function Register() {
+  const [firstName, setFirstName] = useState({
+    value: "",
+    error: "",
+  });
+  const [lastName, setLastName] = useState({
+    value: "",
+    error: "",
+  });
+  const [phoneNumber, setPhoneNumber] = useState({
+    value: "",
+    error: "",
+  });
+  const [email, setEmail] = useState({
+    value: "",
+    error: "",
+  });
+
+  const handleFirstNameChange = (e) => {
+    const value = e.target.value;
+    setFirstName({ value, error: nameValidator(value) });
+  };
+
+  const handleLastNameChange = (e) => {
+    const value = e.target.value;
+    setLastName({ value, error: nameValidator(value) });
+  };
+
+  const handlePhoneNumberChange = (e) => {
+    const value = e.target.value;
+    setPhoneNumber({ value, error: phoneValidator(value) });
+  };
+
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail({ value, error: emailValidator(value) });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const errors = validateRegistration(formData); // Call the validation function
-    setErrors(errors);
 
-    if (Object.keys(errors).length === 0) {
-      console.log("Form submitted:", formData);
+    // Validate all fields
+    const firstNameError = nameValidator(firstName.value);
+    const lastNameError = nameValidator(lastName.value);
+    const phoneNumberError = phoneValidator(phoneNumber.value);
+    const emailError = emailValidator(email.value);
+
+    // Update errors state
+    setFirstName({ ...firstName, error: firstNameError });
+    setLastName({ ...lastName, error: lastNameError });
+    setPhoneNumber({ ...phoneNumber, error: phoneNumberError });
+    setEmail({ ...email, error: emailError });
+
+    // If no errors, submit form
+    if (!firstNameError && !lastNameError && !phoneNumberError && !emailError) {
+      console.log("Form submitted:", {
+        firstName: firstName.value,
+        lastName: lastName.value,
+        phoneNumber: phoneNumber.value,
+        email: email.value,
+      });
     }
   };
+
   return (
     <Typography className="container-fluid">
-      <Typography className="card" style={{ margin: "50px",borderRadius: "20px", background: "#FFFFFF", boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)" }}>
-        <Typography
-          className="card-body"
-          style={{ height: "670px", padding: "25px", }}
-        >
+      <Typography className="card" style={{ margin: "50px", borderRadius: "20px", background: "#FFFFFF", boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)" }}>
+        <Typography className="card-body" style={{ height: "670px", padding: "25px" }}>
           <Typography class="row">
             <Typography class="col-6">
               <Box sx={{ display: "flex", alignItems: "center" }}>
                 <Typography>
-                  <img
-                    src="../assests/trendify.png"
-                    alt=""
-                    style={{ width: "60px", height: "60px" }}
-                  />
+                  <img src={mainContent.appLogo} alt="logo" style={mainContent.style} />
                 </Typography>
-                <h4 variant="h6">Trendify</h4>
+                <h4 variant="h6">{mainContent.appName}</h4>
               </Box>
               <Box sx={{ ml: "60px", paddingTop: "10px" }}>
-                <h3 sx={{ marginBottom: "25px" }}>
-                  Hello! Register to get started
-                </h3>
-
-
+                <h3 sx={{ marginBottom: "25px" }}>{RegisterContent.registerHeader}</h3>
                 <form onSubmit={handleSubmit}>
                   <TextField
                     style={{ marginTop: "12px", width: "100%" }}
@@ -60,10 +91,10 @@ function Register() {
                     label="First Name"
                     variant="standard"
                     name="firstName"
-                    value={formData.firstName}
-                    onChange={handleInputChange}
-                    error={!!errors.firstName}
-                    helperText={errors.firstName}
+                    value={firstName.value}
+                    onChange={handleFirstNameChange}
+                    error={!!firstName.error}
+                    helperText={firstName.error}
                   />
                   <TextField
                     style={{ marginTop: "8px", width: "100%" }}
@@ -71,10 +102,10 @@ function Register() {
                     label="Last Name"
                     variant="standard"
                     name="lastName"
-                    value={formData.lastName}
-                    onChange={handleInputChange}
-                    error={!!errors.lastName}
-                    helperText={errors.lastName}
+                    value={lastName.value}
+                    onChange={handleLastNameChange}
+                    error={!!lastName.error}
+                    helperText={lastName.error}
                   />
                   <TextField
                     style={{ marginTop: "8px", width: "100%" }}
@@ -82,10 +113,10 @@ function Register() {
                     label="Phone Number"
                     variant="standard"
                     name="phoneNumber"
-                    value={formData.phoneNumber}
-                    onChange={handleInputChange}
-                    error={!!errors.phoneNumber}
-                    helperText={errors.phoneNumber}
+                    value={phoneNumber.value}
+                    onChange={handlePhoneNumberChange}
+                    error={!!phoneNumber.error}
+                    helperText={phoneNumber.error}
                   />
                   <TextField
                     style={{ marginTop: "8px", width: "100%" }}
@@ -93,106 +124,54 @@ function Register() {
                     label="Email"
                     variant="standard"
                     name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    error={!!errors.email}
-                    helperText={errors.email}
+                    value={email.value}
+                    onChange={handleEmailChange}
+                    error={!!email.error}
+                    helperText={email.error}
                   />
                   <Box style={{ textAlign: "center", marginTop: "15px" }}>
-                    <button
+                    <Button
                       type="submit"
+                      variant="contained"
                       style={{
                         backgroundColor: "#C09562",
-                        borderRadius: "20px",
-                        border: "1px solid #C09562",
                         color: "white",
-                        padding: "10px",
+                        borderRadius: "20px",
                         width: "30%",
-                        cursor: "pointer",
                         transition: "background-color 0.3s ease",
                       }}
                     >
-                      Register
-                    </button>
+                      {RegisterContent.RegisterContent}
+                    </Button>
                   </Box>
                 </form>
 
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    marginTop: "10px",
-                  }}
-                >
-                  <Typography sx={{ color: "#000000", Text: "20px" }}>OR</Typography>
+                <Box sx={{ display: "flex", justifyContent: "center", marginTop: "10px" }}>
+                  <Typography sx={{ color: "#000000", Text: "20px" }}> {loginContent.or}</Typography>
                 </Box>
 
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    justifyContent: "space-evenly",
-                    cursor: "pointer",
-                  }}
-                >
-                  <img
-                    src="../assests/facebook.png"
-                    alt=""
-                    style={{ width: "150px", height: "50px" }}
-                  />
-                  <img
-                    src="../assests/google.png"
-                    alt=""
-                    style={{ width: "150px", height: "50px" }}
-                  />
-                  <img
-                    src="../assests/apple.png"
-                    alt=""
-                    style={{ width: "150px", height: "50px" }}
-                  />
-                  
+                <Box sx={{ display: "flex", justifyContent: "center", justifyContent: "space-evenly", cursor: "pointer" }}>
+                  <img src={loginContent.FacebookImg} alt="facebook" style={loginContent.style} />
+                  <img src={loginContent.googleImg} alt="google" style={loginContent.style} />
+                  <img src={loginContent.appleImg} alt="apple" style={loginContent.style} />
                 </Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    marginTop: "10px",
-                    fontSize: "15px",
-                  }}
-                >
-                  <Typography style={{ color: "#000000" }}>
-                    {" "}
-                    Already have an account?{" "}
-                    <span style={{ color: "#C09562", cursor: "pointer" }}>
-                      Login Now
-                    </span>
-                  </Typography>
+
+                <Box sx={{ display: "flex", justifyContent: "center", marginTop: "10px", fontSize: "15px" }}>
+                  <Typography style={{ color: "#000000" }}> {RegisterContent.doYouHaveaccount} <span style={{ color: "#C09562", cursor: "pointer" }}>Login Now</span></Typography>
                 </Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    fontSize: "15px",
-                    marginTop: "5px",
-                  }}
-                >
+
+                <Box sx={{ display: "flex", justifyContent: "center", fontSize: "15px", marginTop: "5px" }}>
                   <Typography style={{ color: "#000000" }}>
-                    By continuing, I agree to the
-                    <span style={{ color: "#C09562", cursor: "pointer" }}>
-                      Terms of Use
-                    </span>{" "}
-                    and 
-                    <span style={{ color: "#C09562", cursor: "pointer" }}>{" "}
-                      privancy policy
-                    </span>
+                    {RegisterContent.continuingIagree}
+                    <span style={{ color: "#C09562", cursor: "pointer" }}>{RegisterContent.TermsUse}</span> and
+                    <span style={{ color: "#C09562", cursor: "pointer" }}>{RegisterContent.privancy}</span>
                   </Typography>
                 </Box>
               </Box>
             </Typography>
             <Typography class="col-6">
               <Box>
-                {" "}
-                <img src="../assests/register.png" alt="img" style={{ height: "645px" }} />
+                <img src={RegisterContent.registerLogo} alt="img" style={{ height: "645px" }} />
               </Box>
             </Typography>
           </Typography>

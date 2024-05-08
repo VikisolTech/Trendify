@@ -3,23 +3,28 @@ import { TextField, Box, Typography } from "@mui/material";
 import { validateInput } from "../../utils/validator";
 import { mainContent } from "../../constants/content/mainContent";
 import { loginContent } from "../../constants/content/LoginContent";
+
 function Login() {
-  const [input, setInput] = useState("");
-  const [inputError, setInputError] = useState("");
+  const [inputEmail, setInputEmail] = useState({
+    value: '',
+    error: '',
+  });
+  
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const inputError = validateInput(input);
-    if (inputError) {
-      setInputError(inputError);
+    const error = validateInput(inputEmail);
+    if (error) {
+      setInputEmail({...inputEmail,error:error});
     } else {
-      console.log("Entered email or phone number:", input);
+      console.log("Entered email or phone number:", inputEmail);
     }
   };
 
   const handleInputChange = (event) => {
-    setInput(event.target.value);
+    setInputEmail({value:event.target.value,error:""});
   };
+
   return (
     <Typography className="container-fluid">
       <Typography
@@ -41,15 +46,15 @@ function Login() {
                 <Typography>
                   <img
                     src={mainContent.appLogo}
-                    alt=""
-                    style={{ width: "60px", height: "60px" }}
+                    alt="logo"
+                    style={mainContent.style}
                   />
                 </Typography>
                 <h4 variant="h6">{mainContent.appName}</h4>
               </Box>
               <Box sx={{ ml: "60px", paddingTop: "50px" }}>
                 <h3 sx={{ marginBottom: "20px" }}>
-                  Welcome back! Glad to see you, Again!
+                  {loginContent.loginHeader}
                 </h3>
                 <form onSubmit={handleSubmit}>
                   <Box sx={{ marginTop: "25px" }}>
@@ -59,10 +64,10 @@ function Login() {
                       fullWidth
                       variant="standard"
                       name="email"
-                      value={input}
+                      value={inputEmail.value}
                       onChange={handleInputChange}
-                      error={!!inputError}
-                      helperText={inputError}
+                      error={!!inputEmail.error}
+                      helperText={inputEmail.error}
                     />
                   </Box>
                   <Box
@@ -99,7 +104,7 @@ function Login() {
                           cursor: "pointer",
                         }}
                       >
-                        Request OTP
+                        {loginContent.loginRequest}
                       </button>
                     </Box>
                   </Box>
@@ -112,7 +117,7 @@ function Login() {
                   }}
                 >
                   <Typography sx={{ color: "#000000", Text: "20px" }}>
-                    OR
+                    {loginContent.or}
                   </Typography>
                 </Box>
 
@@ -126,19 +131,19 @@ function Login() {
                   }}
                 >
                   <img
-                    src="../assests/facebook.png"
-                    alt=""
-                    style={{ width: "150px", height: "50px" }}
+                    src={loginContent.FacebookImg}
+                    alt="facebook"
+                    style={loginContent.style}
                   />
                   <img
-                    src="../assests/google.png"
-                    alt=""
-                    style={{ width: "150px", height: "50px" }}
+                    src={loginContent.googleImg}
+                    alt="google"
+                    style={loginContent.style}
                   />
                   <img
-                    src="../assests/apple.png"
-                    alt=""
-                    style={{ width: "150px", height: "50px" }}
+                    src={loginContent.appleImg}
+                    alt="apple"
+                    style={loginContent.style}
                   />
                 </Box>
 
@@ -151,9 +156,9 @@ function Login() {
                   }}
                 >
                   <Typography style={{ color: "#000000" }}>
-                    Don’t have an account yet? {""}
+                    {loginContent.dontHaveAccount} {""}
                     <span style={{ color: "#C09562", cursor: "pointer" }}>
-                      Sign up for free
+                      {loginContent.singUp}
                     </span>
                   </Typography>
                 </Box>
@@ -164,7 +169,7 @@ function Login() {
                 {" "}
                 <img
                   src={loginContent.loginImg}
-                  alt=""
+                  alt="login"
                   style={{ height: "625px" }}
                 />
               </Box>
