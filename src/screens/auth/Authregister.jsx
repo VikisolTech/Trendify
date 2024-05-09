@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { Box, Typography, Button } from "@mui/material";
 import TextField from "@mui/material/TextField";
-import { nameValidator, emailValidator, phoneValidator } from "../../utils/validator";
+import {
+  nameValidator,
+  emailValidator,
+  phoneValidator,
+} from "../../utils/validator";
 import { mainContent } from "../../constants/content/mainContent";
 import { RegisterContent } from "../../constants/content/LoginContent";
 import { loginContent } from "../../constants/content/LoginContent";
-
+import AuthQuickOptions from "../../components/auth/AuthQuickOptions";
+import AuthButton from "../../components/auth/AuthButton";
 function Register() {
   const [firstName, setFirstName] = useState({
     value: "",
@@ -72,18 +77,32 @@ function Register() {
 
   return (
     <div className="container-fluid">
-      <div className="card" style={{ margin: "50px", borderRadius: "20px", background: "#FFFFFF", boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)" }}>
+      <div
+        className="card"
+        style={{
+          margin: "50px",
+          borderRadius: "20px",
+          background: "#FFFFFF",
+          boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
+        }}
+      >
         <div className="card-body" style={{ padding: "25px" }}>
           <div className="row">
             <div className="col-md-6">
               <Box sx={{ display: "flex", alignItems: "center" }}>
                 <Typography>
-                  <img src={mainContent.appLogo} alt="logo" style={mainContent.style} />
+                  <img
+                    src={mainContent.appLogo}
+                    alt="logo"
+                    style={mainContent.style}
+                  />
                 </Typography>
                 <h4 variant="h6">{mainContent.appName}</h4>
               </Box>
               <Box sx={{ ml: "60px", paddingTop: "10px" }}>
-                <h3 sx={{ marginBottom: "25px" }}>{RegisterContent.registerHeader}</h3>
+                <h3 sx={{ marginBottom: "25px" }}>
+                  {RegisterContent.registerHeader}
+                </h3>
                 <form onSubmit={handleSubmit}>
                   <TextField
                     style={{ marginTop: "12px", width: "100%" }}
@@ -129,49 +148,69 @@ function Register() {
                     error={!!email.error}
                     helperText={email.error}
                   />
-                  <Box sx={{ textAlign: "center", marginTop: "15px", display: "flex", justifyContent: "center", alignItems: "center" }}>
-                    <Button
-                      type="submit"
-                      variant="contained"
-                      style={{
-                        backgroundColor: "#C09562",
-                        color: "white",
-                        borderRadius: "20px",
-                        width: "150px",
-                        transition: "background-color 0.3s ease",
-                        marginRight:"10%",
-                      }}
-                    >
-                      {RegisterContent.Register}
-                    </Button>
-                  </Box>
-
+                  <AuthButton
+                    label={RegisterContent.Register}
+                    onClick={() => {}}
+                  />
                 </form>
               </Box>
               {/* Social Media Icons and Login link */}
-              <Box sx={{ display: "flex", justifyContent: "center", marginTop: "10px", fontSize: "15px" }}>
-                <Typography style={{ color: "#000000" }}>{loginContent.or}</Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  marginTop: "10px",
+                  fontSize: "15px",
+                }}
+              >
+                <Typography style={{ color: "#000000" }}>
+                  {loginContent.or}
+                </Typography>
               </Box>
-              <Box sx={{ display: "flex", justifyContent: "center", justifyContent: "space-evenly", cursor: "pointer" }}>
-                <img src={loginContent.FacebookImg} alt="facebook" style={loginContent.style} />
-                <img src={loginContent.googleImg} alt="google" style={loginContent.style} />
-                <img src={loginContent.appleImg} alt="apple" style={loginContent.style} />
-              </Box>
-              <Box sx={{ display: "flex", justifyContent: "center", marginTop: "10px", fontSize: "15px" }}>
-                <Typography style={{ color: "#000000" }}>{RegisterContent.doYouHaveaccount} <span style={{ color: "#C09562", cursor: "pointer" }}>{loginContent.loginNow}</span></Typography>
+              <AuthQuickOptions />
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  marginTop: "10px",
+                  fontSize: "15px",
+                }}
+              >
+                <Typography style={{ color: "#000000" }}>
+                  {RegisterContent.doYouHaveaccount}{" "}
+                  <span style={{ color: "#C09562", cursor: "pointer" }}>
+                    {loginContent.loginNow}
+                  </span>
+                </Typography>
               </Box>
               {/* Terms and conditions */}
-              <Box sx={{ display: "flex", justifyContent: "center", fontSize: "15px", marginTop: "5px" }}>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  fontSize: "15px",
+                  marginTop: "5px",
+                }}
+              >
                 <Typography style={{ color: "#000000" }}>
                   {RegisterContent.continuingIagree}
-                  <span style={{ color: "#C09562", cursor: "pointer" }}>{RegisterContent.TermsUse}</span> {RegisterContent.and}
-                  <span style={{ color: "#C09562", cursor: "pointer" }}>{RegisterContent.privacy}</span>
+                  <span style={{ color: "#C09562", cursor: "pointer" }}>
+                    {RegisterContent.TermsUse}
+                  </span>{" "}
+                  {RegisterContent.and}
+                  <span style={{ color: "#C09562", cursor: "pointer" }}>
+                    {RegisterContent.privacy}
+                  </span>
                 </Typography>
               </Box>
             </div>
             {/* Image column */}
             <div className="col-md-6 d-none d-md-block">
-              <img src={RegisterContent.registerLogo} alt="img" style={{ height: "645px" }} />
+              <img
+                src={RegisterContent.registerLogo}
+                alt="img"
+                style={{ height: "645px" }}
+              />
             </div>
           </div>
         </div>

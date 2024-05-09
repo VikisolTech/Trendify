@@ -8,9 +8,9 @@ import Login from "../auth/Login";
 function AuthNavigation() {
   return (
     <Routes>
-      <Route index element={<Login/>} />
-      <Route path={AuthRoutes.Loginotp} element={<Loginotp />} />
-      <Route path={AuthRoutes.Register} element={<Register />} />
+      <Route path={AuthRoutes.loginPage} index element={<Login />} />
+      <Route path={AuthRoutes.loginOtp} element={<Loginotp />} />
+      <Route path={AuthRoutes.register} element={<Register />} />
     </Routes>
   );
 }

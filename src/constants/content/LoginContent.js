@@ -3,13 +3,11 @@ export const loginContent = {
   googleImg: "../assets/google.png",
   FacebookImg: "../assets/facebook.png",
   appleImg: "../assets/apple.png",
-  dontHaveAccount: "  Don’t have an account yet? ",
+  dontHaveAccount: "  Don’t have an account yet?  ",
   singUp: " Sign up for free",
   loginHeader: " Welcome back! Glad to see you, Again!",
   or: "OR",
-  loginRequest: "Request OTP",
-  style: { width: "150px", height: "50px" }
-
+  loginRequest: "Request OTP"
 
 };
 
