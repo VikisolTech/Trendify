@@ -4,7 +4,7 @@ import { loginContent } from "../../constants/content/LoginContent";
 function AuthQuickOptions() {
   return (
     <>
-      <p className="text-black text-xl my-3 xl:text-center ">or continue with</p>
+      <p className="text-black text-xl xl:text-center flex justify-center">or continue with</p>
       <div className="flex w-full justify-between xl:justify-evenly">
         <RenderIcon src={loginContent.googleImg} alt={"google"} />
         <RenderIcon src={loginContent.appleImg} alt={"apple"} />

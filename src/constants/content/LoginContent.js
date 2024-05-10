@@ -18,7 +18,9 @@ export const RegisterContent = {
   privancy:" privancy policy",
   continuingIagree:"By continuing, I agree to the",
   TermsUse:"Terms of Use",
-  Register: "Register"
+  Register: "Register",
+  Login: "Login",
+  And:"and"
 };
 
 export const OtpContent = {
@@ -27,6 +29,7 @@ export const OtpContent = {
   validCode: "Please enter a valid code !",
   received: "Not received your code?",
   time: "00:08",
-  Resend: "Resend Code"
-
+  Resend: "Resend Code",
+  Verify:"Verify",
+ Change:"Change"
 }

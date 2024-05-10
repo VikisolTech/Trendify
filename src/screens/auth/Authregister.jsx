@@ -1,222 +1,53 @@
 import React, { useState } from "react";
 import { Box, Typography, Button } from "@mui/material";
 import TextField from "@mui/material/TextField";
-import {
-  nameValidator,
-  emailValidator,
-  phoneValidator,
-} from "../../utils/validator";
 import { mainContent } from "../../constants/content/mainContent";
 import { RegisterContent } from "../../constants/content/LoginContent";
 import { loginContent } from "../../constants/content/LoginContent";
 import AuthQuickOptions from "../../components/auth/AuthQuickOptions";
 import AuthButton from "../../components/auth/AuthButton";
+import AuthLogo from "../../components/auth/AuthLogo";
+import AuthRegisterForm from "../../components/auth/AuthRegisterForm";
+import { AuthPrefix, AuthSuffix } from "../../components/auth/AuthPrefixSuffix";
 function Register() {
-  const [firstName, setFirstName] = useState({
-    value: "",
-    error: "",
-  });
-  const [lastName, setLastName] = useState({
-    value: "",
-    error: "",
-  });
-  const [phoneNumber, setPhoneNumber] = useState({
-    value: "",
-    error: "",
-  });
-  const [email, setEmail] = useState({
-    value: "",
-    error: "",
-  });
 
-  const handleFirstNameChange = (e) => {
-    const value = e.target.value;
-    setFirstName({ value, error: nameValidator(value) });
-  };
-
-  const handleLastNameChange = (e) => {
-    const value = e.target.value;
-    setLastName({ value, error: nameValidator(value) });
-  };
-
-  const handlePhoneNumberChange = (e) => {
-    const value = e.target.value;
-    setPhoneNumber({ value, error: phoneValidator(value) });
-  };
-
-  const handleEmailChange = (e) => {
-    const value = e.target.value;
-    setEmail({ value, error: emailValidator(value) });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    // Validate all fields
-    const firstNameError = nameValidator(firstName.value);
-    const lastNameError = nameValidator(lastName.value);
-    const phoneNumberError = phoneValidator(phoneNumber.value);
-    const emailError = emailValidator(email.value);
-
-    // Update errors state
-    setFirstName({ ...firstName, error: firstNameError });
-    setLastName({ ...lastName, error: lastNameError });
-    setPhoneNumber({ ...phoneNumber, error: phoneNumberError });
-    setEmail({ ...email, error: emailError });
-
-    // If no errors, submit form
-    if (!firstNameError && !lastNameError && !phoneNumberError && !emailError) {
-      console.log("Form submitted:", {
-        firstName: firstName.value,
-        lastName: lastName.value,
-        phoneNumber: phoneNumber.value,
-        email: email.value,
-      });
-    }
-  };
 
   return (
-    <div className="container-fluid">
-      <div
-        className="card"
-        style={{
-          margin: "50px",
-          borderRadius: "20px",
-          background: "#FFFFFF",
-          boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.1)",
-        }}
-      >
-        <div className="card-body" style={{ padding: "25px" }}>
-          <div className="row">
-            <div className="col-md-6">
-              <Box sx={{ display: "flex", alignItems: "center" }}>
-                <Typography>
-                  <img
-                    src={mainContent.appLogo}
-                    alt="logo"
-                    style={mainContent.style}
-                  />
-                </Typography>
-                <h4 variant="h6">{mainContent.appName}</h4>
-              </Box>
-              <Box sx={{ ml: "60px", paddingTop: "10px" }}>
-                <h3 sx={{ marginBottom: "25px" }}>
-                  {RegisterContent.registerHeader}
-                </h3>
-                <form onSubmit={handleSubmit}>
-                  <TextField
-                    style={{ marginTop: "12px", width: "100%" }}
-                    id="standard-basic"
-                    label="First Name"
-                    variant="standard"
-                    name="firstName"
-                    value={firstName.value}
-                    onChange={handleFirstNameChange}
-                    error={!!firstName.error}
-                    helperText={firstName.error}
-                  />
-                  <TextField
-                    style={{ marginTop: "8px", width: "100%" }}
-                    id="standard-basic"
-                    label="Last Name"
-                    variant="standard"
-                    name="lastName"
-                    value={lastName.value}
-                    onChange={handleLastNameChange}
-                    error={!!lastName.error}
-                    helperText={lastName.error}
-                  />
-                  <TextField
-                    style={{ marginTop: "8px", width: "100%" }}
-                    id="standard-basic"
-                    label="Phone Number"
-                    variant="standard"
-                    name="phoneNumber"
-                    value={phoneNumber.value}
-                    onChange={handlePhoneNumberChange}
-                    error={!!phoneNumber.error}
-                    helperText={phoneNumber.error}
-                  />
-                  <TextField
-                    style={{ marginTop: "8px", width: "100%" }}
-                    id="standard-basic"
-                    label="Email"
-                    variant="standard"
-                    name="email"
-                    value={email.value}
-                    onChange={handleEmailChange}
-                    error={!!email.error}
-                    helperText={email.error}
-                  />
-                  <AuthButton
-                    label={RegisterContent.Register}
-                    onClick={() => {}}
-                  />
-                </form>
-              </Box>
-              {/* Social Media Icons and Login link */}
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  marginTop: "10px",
-                  fontSize: "15px",
-                }}
-              >
-                <Typography style={{ color: "#000000" }}>
-                  {loginContent.or}
-                </Typography>
-              </Box>
-              <AuthQuickOptions />
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  marginTop: "10px",
-                  fontSize: "15px",
-                }}
-              >
-                <Typography style={{ color: "#000000" }}>
-                  {RegisterContent.doYouHaveaccount}{" "}
-                  <span style={{ color: "#C09562", cursor: "pointer" }}>
-                    {loginContent.loginNow}
-                  </span>
-                </Typography>
-              </Box>
-              {/* Terms and conditions */}
-              <Box
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  fontSize: "15px",
-                  marginTop: "5px",
-                }}
-              >
-                <Typography style={{ color: "#000000" }}>
-                  {RegisterContent.continuingIagree}
-                  <span style={{ color: "#C09562", cursor: "pointer" }}>
-                    {RegisterContent.TermsUse}
-                  </span>{" "}
-                  {RegisterContent.and}
-                  <span style={{ color: "#C09562", cursor: "pointer" }}>
-                    {RegisterContent.privacy}
-                  </span>
-                </Typography>
-              </Box>
+
+    <div className="w-full py-8  flex bg-authBgColor h-full justify-center items-center">
+      <div className="w-[90%] h-[93%] flex flex-col xl:flex-row items-center xl:items-stretch  bg-white rounded-md px-4 py-4 xl:justify-between">
+        <div className="xl:w-[50%] xl:self-center xl:flex flex-col xl:items-center xl:h-full">
+          <div className="m-7 xl:self-start xl:mb-18">
+            <AuthLogo />
+          </div>
+          <div className="flex flex-col items-center">
+            <p className="font-poppins text-black text-xl  text-center xl:text-2xl">
+              {RegisterContent.registerHeader}
+            </p>
+            <AuthRegisterForm />
+            <AuthQuickOptions />
+            <div className="flex flex-row mt-3 xl:justify-center justify-center gap-2">
+              <AuthPrefix label={RegisterContent.doYouHaveaccount} />
+              <AuthSuffix label={RegisterContent.Login} />
             </div>
-            {/* Image column */}
-            <div className="col-md-6 d-none d-md-block">
-              <img
-                src={RegisterContent.registerLogo}
-                alt="img"
-                style={{ height: "645px" }}
-              />
+            <div className="flex flex-row flex-wrap xl:justify-center justify-center gap-2">
+              <AuthPrefix label={RegisterContent.continuingIagree} />
+              <AuthSuffix label={RegisterContent.TermsUse} />
+              <AuthPrefix label={RegisterContent.And} />
+              <AuthSuffix label={RegisterContent.privancy} />
             </div>
           </div>
         </div>
+        <div className="hidden xl:flex w-[50%] xl:min-h-full">
+          <img src={RegisterContent.registerLogo} />
+        </div>
+
       </div>
     </div>
+
   );
+
 }
+
 
 export default Register;

@@ -18,7 +18,7 @@ function Login() {
     if (error) {
       setInputEmail({ ...inputEmail, error: error });
     } else {
-      // console.log("Entered email or phone number:", inputEmail);
+      console.log("Entered email or phone number:", inputEmail);
     }
   };
 
@@ -28,33 +28,43 @@ function Login() {
 
   return (
     <div className="w-screen flex bg-authBgColor h-screen  justify-center items-center">
-      <div className="w-[90%] h-[90%] flex flex-col xl:flex-row items-center xl:items-end bg-white rounded-md px-4 py-4 xl:justify-between">
-        <div className="xl:w-[50%] xl:self-center">
+      <div className="w-[90%]  h-[90%] flex flex-col xl:flex-row items-center  xl:items-end bg-white rounded-md px-4 py-4 xl:justify-between">
+        <div className="xl:w-[50%] xl:self-center xl:flex flex-col xl:items-center xl:h-full">
+          <div className="m-7 xl:self-start xl:mb-18">
           <AuthLogo />
-          <p className="font-poppins text-black text-xl my-4 text-center xl:text-2xl">
-            {loginContent.loginHeader}
-          </p>
-          <TextField
-            id="exampleInputEmail1"
-            label="Email or Phone Number"
-            className="self-center"
-            fullWidth
-            variant="standard"
-            name="email"
-            value={inputEmail.value}
-            onChange={handleInputChange}
-            error={!!inputEmail.error}
-            helperText={inputEmail.error}
-          />
-          <AuthButton label={loginContent.loginRequest} />
-          <AuthQuickOptions />
-          <div className="flex flex-row my-5 xl:justify-center">
-            <AuthPrefix label={loginContent.dontHaveAccount} />
-            <AuthSuffix label={loginContent.singUp} />
           </div>
+          <div className="flex flex-col items-center">
+            <p className="font-poppins text-black text-xl my-4 text-center xl:text-2xl">
+              {loginContent.loginHeader}
+            </p>
+            <form className="w-full" onSubmit={handleSubmit} >
+            <TextField
+              id="exampleInputEmail1"
+              label="Email or Phone Number"
+              className="self-center xl:flex xl:justify-center xl:max-w-full xl:ml-[60px] my-2"
+              fullWidth
+              variant="standard"
+              name="email"
+              value={inputEmail.value}
+              onChange={handleInputChange}
+              error={!!inputEmail.error}
+              helperText={inputEmail.error}
+
+            />
+           <AuthButton label={loginContent.loginRequest} routeUrl="/login-otp" />
+            </form>
+           
+            <AuthQuickOptions />
+            <div className="flex flex-row my-5 xl:justify-center justify-center gap-2">
+              <AuthPrefix label={loginContent.dontHaveAccount} />
+              <AuthSuffix label={loginContent.singUp} />
+            </div>
+          </div>
+         
         </div>
-        <img className="hidden xl:flex w-[45%] h-[700px]" src={loginContent.loginImg} />
+        <img className="hidden xl:flex w-[50%] xl:min-h-full" src={loginContent.loginImg} />
       </div>
+
     </div>
   );
 }
