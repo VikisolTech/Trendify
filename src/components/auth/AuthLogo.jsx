@@ -6,7 +6,7 @@ function AuthLogo() {
     <div className="flex flex-col items-center xl:flex-row">
       <img className="w-20 h-20" src={mainContent.appLogo} />
 
-      <p className="text-xl mt-2 font-poppins font-medium">
+      <p className="text-xl mt-2 font-poppins font-medium pl-3">
         {mainContent.appName}
       </p>
     </div>
