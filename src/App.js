@@ -1,9 +1,6 @@
-import React from 'react'
-import Home from "./main-test/screens/Home"
+import Main from "./screens/navigation/Main";
 function App() {
-  return (
-  <Home/>
-  )
+  return <Main />;
 }
 
-export default App
+export default App;
