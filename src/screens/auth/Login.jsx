@@ -6,6 +6,7 @@ import AuthQuickOptions from "../../components/auth/AuthQuickOptions";
 import AuthButton from "../../components/auth/AuthButton";
 import AuthLogo from "../../components/auth/AuthLogo";
 import { AuthPrefix, AuthSuffix } from "../../components/auth/AuthPrefixSuffix";
+import { AuthRoutes } from "../../constants/routes";
 function Login() {
   const [inputEmail, setInputEmail] = useState({
     value: "",
@@ -30,14 +31,14 @@ function Login() {
     <div className="w-screen flex bg-authBgColor h-screen  justify-center items-center">
       <div className="w-[90%]  h-[90%] flex flex-col xl:flex-row items-center  xl:items-end bg-white rounded-md px-4 py-4 xl:justify-between">
         <div className="xl:w-[50%] xl:self-center xl:flex flex-col xl:items-center xl:h-full">
-          <div className="m-7 xl:self-start xl:mb-18">
+          <div className="m-7   xl:self-start xl:mb-18">
           <AuthLogo />
           </div>
           <div className="flex flex-col items-center">
             <p className="font-poppins text-black text-xl my-4 text-center xl:text-2xl">
               {loginContent.loginHeader}
             </p>
-            <form className="w-full" onSubmit={handleSubmit} >
+            <form className="w-full xl:w-[92%]" onSubmit={handleSubmit} >
             <TextField
               id="exampleInputEmail1"
               label="Email or Phone Number"
@@ -51,7 +52,7 @@ function Login() {
               helperText={inputEmail.error}
 
             />
-           <AuthButton label={loginContent.loginRequest} routeUrl="/login-otp" />
+           <AuthButton label={loginContent.loginRequest} onClick={()=>{ window.location.href= AuthRoutes.loginOtp}} />
             </form>
            
             <AuthQuickOptions />
