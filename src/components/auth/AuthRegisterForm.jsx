@@ -79,7 +79,7 @@ export function AuthRegisterForm(
         <>
             <form onSubmit={handleSubmit} className="xl:contents">
                 <TextField
-                    className="self-center xl:flex xl:justify-center xl:max-w-full xl:ml-[60px] w-[100%] my-2"
+                    className="self-center xl:flex xl:justify-center xl:max-w-full xl:ml-[60px] w-[100%] my-3"
                     id="standard-basic"
                     label="First Name"
                     variant="standard"
@@ -90,7 +90,7 @@ export function AuthRegisterForm(
                     helperText={firstName.error}
                 />
                 <TextField
-                    className="self-center xl:flex xl:justify-center xl:max-w-full w-[100%] xl:ml-[60px] my-2"
+                    className="self-center xl:flex xl:justify-center xl:max-w-full w-[100%] xl:ml-[60px] my-3"
                     id="standard-basic"
                     label="Last Name"
                     variant="standard"
@@ -101,7 +101,7 @@ export function AuthRegisterForm(
                     helperText={lastName.error}
                 />
                 <TextField
-                    className="self-center xl:flex xl:justify-center xl:max-w-full w-[100%] xl:ml-[60px] my-2"
+                    className="self-center xl:flex xl:justify-center xl:max-w-full w-[100%] xl:ml-[60px] my-3"
                     id="standard-basic"
                     label="Phone Number"
                     variant="standard"
@@ -112,7 +112,7 @@ export function AuthRegisterForm(
                     helperText={phoneNumber.error}
                 />
                 <TextField
-                    className="self-center xl:flex xl:justify-center xl:max-w-full w-[100%] xl:ml-[60px] my-2"
+                    className="self-center xl:flex xl:justify-center xl:max-w-full w-[100%] xl:ml-[60px] my-3"
                     id="standard-basic"
                     label="Email"
                     variant="standard"

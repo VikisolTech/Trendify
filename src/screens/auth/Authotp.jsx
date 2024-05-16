@@ -1,12 +1,10 @@
 
-import { Box, Typography, Button } from '@mui/material';
-import { validateOTP } from '../../utils/validator';
-import { mainContent } from '../../constants/content/mainContent';
+
 import { OtpContent, } from '../../constants/content/LoginContent';
 import AuthLogo from '../../components/auth/AuthLogo';
 import AuthOtpForm from '../../components/auth/AuthOtpForm';
-import AuthButton from '../../components/auth/AuthButton';
 import { AuthPrefix, AuthSuffix } from "../../components/auth/AuthPrefixSuffix";
+
 export function Loginotp() {
 
   return (
@@ -35,7 +33,7 @@ export function Loginotp() {
             </div>
           </div>
         </div>
-        <div className="hidden xl:flex w-[50%] xl:min-h-full">
+        <div className="hidden xl:flex w-[50%] xl:min-h-full  translate-y-4">
           <img src={OtpContent.OtpImg} />
         </div>
       </div>

@@ -2,7 +2,9 @@ import { Box, Typography, Button } from '@mui/material';
 import { validateOTP } from '../../utils/validator';
 import { OtpContent, } from '../../constants/content/LoginContent'
 import { useState, useRef } from 'react';
-import AuthButton from './AuthButton';
+import { AuthRoutes } from "../../constants/routes";
+import AuthButton from "./AuthButton";
+
 
 
 export function AuthOtpForm() {
@@ -23,10 +25,19 @@ export function AuthOtpForm() {
     const handlePaste = (e) => { };
 
     const handleSubmit = (e) => {
+        
         e.preventDefault();
         const enteredOTP = code.join('');
         const validation = validateOTP(enteredOTP);
-        setError(!validation.isValid);
+        if(
+           validation.isValid
+        ){
+       window.location.href= AuthRoutes.register
+        } else{
+            setError(!validation.isValid);
+        }
+       
+
     };
 
     return (

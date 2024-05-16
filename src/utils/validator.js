@@ -1,10 +1,8 @@
-export const validateInput = (input) => {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const phoneRegex = /^\d{10}$/; 
-  if (!emailRegex.test(input) && !phoneRegex.test(input)) {
-    return "Please enter a valid email or phone number";
-  }
-  return "";
+export const validateInput = (email) => {
+  const re = /\S+@\S+\.\S+/;
+  if (!email) return "Email can't be empty.";
+  if (!re.test(email)) return 'Ooops! We need a valid email address.';
+  return '';
 };
 
 
@@ -39,8 +37,9 @@ export function emailValidator(value) {
 
 
 export const validateOTP = (enteredOTP) => {
-  const expectedOTP = '123456';
-  if (enteredOTP === expectedOTP) {
+ 
+  if (enteredOTP.length == 6) {
+
     return { isValid: true, error: '' };
   } else {
     return { isValid: false, error: 'Please enter a valid code' };
