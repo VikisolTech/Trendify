@@ -30,21 +30,21 @@ function Login() {
 
   return (
     <div className="w-full h-full  flex bg-authBgColor p-4 xl:pb-24 xl:pt-24  xl:p-24 justify-start items-center min-h-[650px]">
-      <div className="w-full h-full flex flex-col   2xl:items-start  items-center min-h-[650px] bg-white rounded-md px-4 py-4 relative box-border">
-      <div className="m-10   2xl:self-start self-center   2xl:absolute top-0">
+      <div className="w-full xl:p-[0px] h-full flex flex-col   xl:items-start  items-center min-h-[650px] bg-white rounded-md px-4 py-4 relative box-border">
+      <div className="m-10   xl:self-start self-center   xl:absolute top-0">
           <AuthLogo />
           </div>
       
-         
-          <div className="flex flex-grow flex-col 2xl:ml-24  items-center 2xl:justify-center justify-start">
-            <p className="font-poppins text-black text-xl my-4 text-center 2xl:text-2xl">
+         <div className="flex items-stretch w-full justify-around xl:h-full">
+         <div className="flex flex-grow flex-col xl:ml-24 max-w-md  items-center xl:justify-center justify-start">
+            <p className="font-poppins text-black text-xl my-4 xl:w-max xl:mt-10 text-center xl:text-[28px]">
               {loginContent.loginHeader}
             </p>
-            <form className="w-full 2xl:w-[92%]" onSubmit={handleSubmit} >
+            <form className="w-full xl:w-[92%]" onSubmit={handleSubmit} >
             <TextField
               id="exampleInputEmail1"
               label="Email or Phone Number"
-              className="self-center 2xl:flex 2xl:justify-center 2xl:max-w-full 2xl:ml-[60px] my-2"
+              className="self-center xl:flex xl:justify-center xl:max-w-[530px] xl:ml-[60px] my-2"
               fullWidth
               variant="standard"
               name="email"
@@ -58,13 +58,15 @@ function Login() {
             </form>
            
             <AuthQuickOptions />
-            <div className="flex flex-row my-5 2xl:justify-center justify-center gap-2">
+            <div className="flex flex-row my-5 xl:justify-center justify-center gap-2">
               <AuthPrefix label={loginContent.dontHaveAccount} />
               <AuthSuffix label={loginContent.singUp}  onPress={()=>{window.location.href= AuthRoutes.register}}/>
             </div>
           </div>
        
-        <img className="hidden 2xl:flex  max-w-[600px] absolute bottom-0 right-10 " src={loginContent.loginImg} />
+        <img className="hidden xl:flex w-[50%] max-w-4xl" src={loginContent.loginImg} />
+         </div>
+         
       </div>
 
     </div>

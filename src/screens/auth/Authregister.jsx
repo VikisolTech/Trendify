@@ -17,7 +17,7 @@ function Register() {
             <AuthLogo />
           </div>
           <div className="flex flex-col items-center">
-            <p className="font-poppins text-black text-xl  text-center xl:text-2xl">
+            <p className="font-poppins text-black text-xl  text-center xl:text-[28px]">
               {RegisterContent.registerHeader}
             </p>
             <AuthRegisterForm />

@@ -18,8 +18,8 @@ export function Loginotp() {
 
 
             <div className="flex flex-row mt-3 xl:justify-center justify-center gap-2 flex-wrap my-4 text-center ">
-              <AuthPrefix  fontSize={"xl:text-[23px] text-base"}label={OtpContent.phoneNumber} />
-              <AuthSuffix  fontSize={"xl:text-[23px] text-base" }label={OtpContent.Change} />
+              <AuthPrefix  fontSize={"xl:text-[25px] text-base"}label={OtpContent.phoneNumber} />
+              <AuthSuffix  fontSize={"xl:text-[25px] text-base" }label={OtpContent.Change} />
             </div>
 
             <AuthOtpForm />
