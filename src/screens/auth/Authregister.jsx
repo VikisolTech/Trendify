@@ -10,10 +10,10 @@ function Register() {
 
   return (
 
-    <div className="w-full py-8  flex bg-authBgColor h-auto justify-center items-center min-h-full">
-      <div className="w-[90%] h-[95vh] xl:h-auto flex flex-col xl:flex-row items-center xl:items-stretch  bg-white rounded-md px-4 py-4 xl:justify-between">
+    <div className="w-full   flex bg-authBgColor h-auto justify-center items-center min-h-full">
+      <div className="w-[90%] max-[600px]:mb-[30px] relative mt-[14px] mb-[14px] max-[600px]:mt-[30px] xl:h-auto flex flex-col xl:flex-row items-center xl:items-stretch  bg-white rounded-md px-4 py-4 xl:justify-between">
         <div className="xl:w-[50%] xl:self-center xl:flex flex-col xl:items-center xl:h-auto">
-          <div className="m-7 xl:self-start xl:mb-18">
+          <div className="m-7  xl:relative xl:top-[-20px] l:top-[23px] l:left-[3%] l:absolute xl:self-start xl:mb-18">
             <AuthLogo />
           </div>
           <div className="flex flex-col items-center">
@@ -24,7 +24,7 @@ function Register() {
             <AuthQuickOptions />
             <div className="flex flex-row mt-3 xl:justify-center justify-center gap-2">
               <AuthPrefix label={RegisterContent.doYouHaveaccount} />
-              <AuthSuffix label={RegisterContent.Login} onPress={()=>{window.location.href= AuthRoutes.loginPage}} />
+              <AuthSuffix label={RegisterContent.Login} onPress={() => { window.location.href = AuthRoutes.loginPage }} />
             </div>
             <div className="flex flex-row flex-wrap xl:justify-center justify-center gap-2">
               <AuthPrefix label={RegisterContent.continuingIagree} />
