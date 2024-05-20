@@ -18,7 +18,7 @@ export default AuthQuickOptions;
 
 function RenderIcon({ src, alt }) {
   return (
-    <div className="bg-white border-1 p-1 w-[33%] xl:w-[150px] px-1 h-14 items-center flex justify-center  mx-2  border border-#E8ECF4 rounded-[50px] shadow-md ">
+    <div className="bg-white border-1 p-1 w-[33%]   cursor-pointer  xl:w-[150px] px-1 h-14 items-center flex justify-center  mx-2  border border-#E8ECF4 rounded-[50px] shadow-md ">
       <img src={src} alt={alt} className="w-8 h-8 " />
     </div>
   ); 

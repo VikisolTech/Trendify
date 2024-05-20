@@ -14,13 +14,19 @@ export function AuthOtpForm() {
 
     const handleKeyDown = (e, index) => { };
     const handleInput = (e, index) => {
-        console.log(e.target.value)
+        const { value } = e.target;
         setCode((prev) => {
             const newCode = [...prev];
-            newCode[index] = e.target.value;
+            newCode[index] = value;
             return newCode;
         });
-     };
+    
+      
+        if (value && index < code.length - 1) {
+            inputs.current[index + 1].focus();
+        }
+    };
+    
     const handleFocus = (e) => { };
     const handlePaste = (e) => { };
 
@@ -39,6 +45,8 @@ export function AuthOtpForm() {
        
 
     };
+    const errorInputStyle="bg-[#FF00001A] border-b-[#FF0000]"
+    const successStyle="border-b-[#2BA2DD] bg-slate-100"
 
     return (
         <>
@@ -49,7 +57,8 @@ export function AuthOtpForm() {
                             <input
                                 key={index}
                                 type="text"
-                                className="w-10 h-10 text-center text-2xl font-extrabold text-slate-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded  outline-none focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100"
+                                className={`w-10 h-10 text-center text-2xl  border-b-[#2BA2DD] text-slate-900 ${error?errorInputStyle: code[index]?successStyle: "bg-slate-100"} border border-transparent hover:border-slate-200 appearance-none rounded  outline-none
+                                 focus:bg-white focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100`}
                                 maxLength="1"
                                 value={digit}
                                 onChange={(e) => handleInput(e, index)}
@@ -69,6 +78,7 @@ export function AuthOtpForm() {
                     </Box>
                 )}
                   <AuthButton label={OtpContent.Verify} />
+                 
               
             </form>
         </>
