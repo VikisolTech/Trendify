@@ -11,11 +11,15 @@ export function AddNewAddressForm() {
     const [nickname, setNickname] = useState({ value: "", error: "" });
     const [fullName, setFullName] = useState({ value: "", error: "" });
     const [phoneNumber, setPhoneNumber] = useState({ value: "", error: "" });
+    const [alternatePhoneNumber, setAlternatePhoneNumber] = useState({ value: "", error: "" });
     const [city, setCity] = useState({ value: "", error: "" });
+    const [landmark, setLandmark] = useState({ value: "", error: "" });
     const [state, setState] = useState({ value: "", error: "" });
     const [country, setCountry] = useState({ value: "", error: "" });
     const [building, setBuilding] = useState({ value: "", error: "" });
     const [area, setArea] = useState({ value: "", error: "" });
+    const [addAlternatePhone, setAddAlternatePhone] = useState(false);
+    const [addLandmark, setAddLandmark] = useState(false);
 
     const handleNicknameChange = (e) => {
         const value = e.target.value;
@@ -31,10 +35,18 @@ export function AddNewAddressForm() {
         const value = e.target.value;
         setPhoneNumber({ value, error: phoneValidator(value) });
     };
+    const handleAlternatePhoneNumberChange = (e) => {
+        const value = e.target.value;
+        setAlternatePhoneNumber({ value, error: phoneValidator(value) });
+    };
 
     const handleCityChange = (e) => {
         const value = e.target.value;
         setCity({ value, error: "" });
+    };
+    const handleLandmarkChange = (e) => {
+        const value = e.target.value;
+        setLandmark({ value, error: "" });
     };
 
     const handleStateChange = (e) => {
@@ -81,6 +93,7 @@ export function AddNewAddressForm() {
                 country: country.value,
                 building: building.value,
                 area: area.value,
+                landmark: landmark.value
             });
         }
     };
@@ -89,7 +102,7 @@ export function AddNewAddressForm() {
         <form onSubmit={handleSubmit} className="xl:contents">
             <div className="flex justify-start">
                 <Typography>Address Nickname</Typography>
-              
+
             </div>
 
             <TextField
@@ -124,12 +137,24 @@ export function AddNewAddressForm() {
                 error={!!phoneNumber.error}
                 helperText={phoneNumber.error}
             />
-            <div>
+            {addAlternatePhone && <div className="w-full">
+                <Typography>Alternate Phone Number <span className="text-[#FF0000]">*</span></Typography>
+                <TextField
+                    className="self-center xl:flex xl:justify-center xl:max-w-full w-[100%] xl:ml-[60px] my-3"
+                    id="outlined-basic-alternatePhone"
+                    variant="outlined"
+                    name="alternatePhoneNumber"
+                    value={alternatePhoneNumber.value}
+                    onChange={handleAlternatePhoneNumberChange}
+                    error={!!alternatePhoneNumber.error}
+                    helperText={alternatePhoneNumber.error}
+                /></div>}
+            <div onClick={() => { setAddAlternatePhone(!addAlternatePhone) }}>
                 <p className="text-[#C09562] cursor-pointer text-base
-font-semibold">{AddressContact.AlternatePhoneNumber}</p>
+font-semibold">{!addAlternatePhone ? AddressContact.AlternatePhoneNumber : AddressContact.RemoveAlternatePhoneNumber}</p>
             </div>
             <div className="flex gap-4 w-full">
-                <div  className="w-full">
+                <div className="w-full">
                     <Typography>City</Typography>
                     <TextField
                         className="self-center xl:flex xl:justify-center xl:max-w-full w-[100%] my-3"
@@ -202,17 +227,31 @@ font-semibold">{AddressContact.AlternatePhoneNumber}</p>
                 helperText={area.error}
 
             />
-            <div>
-                <p className="text-[#C09562] cursor-pointer text-base
-font-semibold">{AddressContact.NearbyFamous}</p>
+            <div onClick={()=>setAddLandmark(true)} >
+                <p className="text-[#C09562] cursor-pointer text-base font-semibold">{AddressContact.NearbyFamous}</p>
             </div>
-            <div className="flex justify-center text-zinc-500
-text-lg
-font-normal items-center">
+
+            {addLandmark && <div className="w-full">
+                <Typography>Landmark</Typography>
+                <TextField
+                    className="self-center xl:flex xl:justify-center xl:max-w-full w-[100%] my-3"
+                    id="outlined-basic-landmark"
+                    variant="outlined"
+                    name="landmark"
+                    value={landmark.value}
+                    onChange={handleLandmarkChange}
+                    error={!!landmark.error}
+                    helperText={landmark.error}
+                /></div>}
+
+
+
+
+            <div className="flex justify-center text-zinc-500 text-lg font-normal items-center">
                 <Checkbox />
                 <p className="py-[9px]">Make this as a default address</p>
             </div>
-            <div className="flex justify-center">
+            <div className="flex justify-center" >
                 <GenericButton label={AddressContact.AddressType} height={'h-[54px]'} width={'w-[340px]'} />
             </div>
 

@@ -10,10 +10,10 @@ export function DashboardLayout({ selectedIndex = 0, children }) {
     const dashboardElements = [{title:"Personal Information",url:"/personal-information"},{title: "My Orders",url:"/my-order"},{title:"Manage Address",url:"/manage-address"},{title:"Manage Cards",url:"/manage-cards"},{title:"Customer Support",url:"/customer-support"},{title:"Logout"}]
     const [selectedItem, setSelectedItem] = useState(dashboardElements[selectedIndex])
     return (
-        <div className="p-16 bg-white ">
-            <p className=" text-neutral-800 text-[27px] font-medium mb-14 ">{selectedItem.title}</p>
-            <div className="flex gap-12">
-                <div id="leftMenu" className="w-80  gap-9 flex flex-col justify-start ">
+        <div className=" xl:p-16 bg-white w-full flex flex-col ">
+            <p className=" text-neutral-800 text-[27px] font-medium mb-14 hidden xl:block">{selectedItem.title}</p>
+            <div className="flex gap-12 w-full">
+                <div id="leftMenu" className="w-80  gap-9 xl:flex flex-col justify-start  hidden">
 
                     <div className=" flex-col flex justify-start items-start gap-4 ">
 
@@ -37,7 +37,7 @@ export function DashboardLayout({ selectedIndex = 0, children }) {
 
                     </div>
                 </div>
-                <div id="rightContent">
+                <div id="rightContent" className="w-full flex justify-center">
                     {children}
                 </div>
             </div>

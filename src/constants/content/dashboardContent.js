@@ -6,6 +6,7 @@ export const AddressContact = {
     usemylocation:'Use my location',
     gpsLocation:"../assets/gps.png",
     AlternatePhoneNumber:"+ Add Alternate Phone Number",
+    RemoveAlternatePhoneNumber:"- Remove Alternate Phone Number",
     NearbyFamous :"+ Add Nearby Famous Shop/Mall/Landmark"
   }
  export const FooterContact =   {
@@ -31,4 +32,5 @@ export const AddressContact = {
   search:'../assets/search.svg',
   basket:'../assets/basket.png',
   person:'../assets/person.png',
+  Arrow:'../assets/arrow.png',
  }

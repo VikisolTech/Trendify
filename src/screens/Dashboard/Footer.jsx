@@ -3,7 +3,7 @@ import { FooterContact } from "../../constants/content/dashboardContent"
 import FooterImages from "../../components/authDashboard/FooterImages"
 export function Footer() {
     return (
-        <>
+        <div className="hidden xl:flex flex-col"> 
             <div class="bg-[#EEEFFB] h-[340px] w-full flex justify-evenly items-stretch p-12">
 
                 <div className="max-w-[1224px] flex justify-between items-start w-full">
@@ -72,7 +72,7 @@ export function Footer() {
 
             </div>
 
-        </>
+            </div>
 
 
 

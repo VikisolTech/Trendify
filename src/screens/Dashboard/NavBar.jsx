@@ -6,9 +6,9 @@ import NavDropdown from "../../components/authDashboard/NavDropDown"
 
 function NavBar() {
     return (
-        <div>
-            <nav>
-                <div className="flex justify-between items-center pb-5 pt-5 px-12">
+        <div className="hidden xl:flex xl:flex-col">
+            <nav >
+                <div className="flex justify-between items-center pb-5 pt-5 px-12 ">
                     <div className="flex flex-col items-center xl:flex-row">
                         <img className="w-[70px] h-[70px]" src={mainContent.appLogo} />
 
