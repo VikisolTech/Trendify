@@ -7,7 +7,8 @@ export const AddressContact = {
     gpsLocation:"../assets/gps.png",
     AlternatePhoneNumber:"+ Add Alternate Phone Number",
     RemoveAlternatePhoneNumber:"- Remove Alternate Phone Number",
-    NearbyFamous :"+ Add Nearby Famous Shop/Mall/Landmark"
+    NearbyFamous :"+ Add Nearby Famous Shop/Mall/Landmark",
+    Update:"Update"
   }
  export const FooterContact =   {
   Catagories:'Catagories',
@@ -33,4 +34,7 @@ export const AddressContact = {
   basket:'../assets/basket.png',
   person:'../assets/person.png',
   Arrow:'../assets/arrow.png',
+ }
+ export const personalInfo = {
+  Profile :"../assets/Profile.png",
  }
