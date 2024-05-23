@@ -34,7 +34,23 @@ export const AddressContact = {
   basket:'../assets/basket.png',
   person:'../assets/person.png',
   Arrow:'../assets/arrow.png',
+  searchbar:"../assets/searchbar.png",
  }
  export const personalInfo = {
   Profile :"../assets/Profile.png",
+ }
+ export const MyOder={
+  status:"Order Status",
+  time:"Order Time",
+  Images:"../assets/images.svg",
+  Lorem :"Lorem lorem lorem",
+  Color:"Color: Blue",
+  Delivered:" Delivered on May 07",
+  itemdelivered:'Your item has been delivered',
+  Rate:"Rate & Review Product",
+  amount:" ₹3,956",
+  greenest:'../assets/greendot.png',
+  star:"../assets/starimage.png",
+  red:"../assets/red rounded.png",
+
  }

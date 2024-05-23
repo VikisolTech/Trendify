@@ -7,7 +7,11 @@ import { MainLayout } from "./MainLayout";
 
 export function DashboardLayout({ selectedIndex = 0, children }) {
 
-    const dashboardElements = [{title:"Personal Information",url:"/personal-information"},{title: "My Orders",url:"/my-order"},{title:"Manage Address",url:"/manage-address"},{title:"Manage Cards",url:"/manage-cards"},{title:"Customer Support",url:"/customer-support"},{title:"Logout"}]
+    const dashboardElements = [{title:"Personal Information",url:"/personal-information"},
+    {title: "My Orders",url:"/my-order"},
+    {title:"Manage Address",url:"/manage-address"},
+    // {title:"Manage Cards",url:"/manage-cards"},
+    {title:"Customer Support",url:"/customer-support"},{title:"Logout"}]
     const [selectedItem, setSelectedItem] = useState(dashboardElements[selectedIndex])
     return (
         <div className=" xl:p-16 bg-white w-full flex flex-col ">

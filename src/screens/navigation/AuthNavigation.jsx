@@ -23,8 +23,8 @@ function AuthNavigation() {
       <Route path={AuthRoutes.personalInformation} element= {<DashboardLayout selectedIndex={0}> <Personal/> </DashboardLayout>}/>
       <Route path={AuthRoutes.myOrder} element= {<DashboardLayout selectedIndex={1}> <MyOrders/> </DashboardLayout>}/>
       <Route path={AuthRoutes.manageAddress} element= {<DashboardLayout selectedIndex={2}> <AddressComponent/> </DashboardLayout>}/>
-      <Route path={AuthRoutes.manageCards} element= {<DashboardLayout selectedIndex={3}> <ManageCards/> </DashboardLayout>}/>
-      <Route path={AuthRoutes.customerSupport} element= {<DashboardLayout selectedIndex={4}> <CustomerSupport/> </DashboardLayout>}/>
+      {/* <Route path={AuthRoutes.manageCards} element= {<DashboardLayout selectedIndex={3}> <ManageCards/> </DashboardLayout>}/> */}
+      <Route path={AuthRoutes.customerSupport} element= {<DashboardLayout selectedIndex={3}> <CustomerSupport/> </DashboardLayout>}/>
       {/* <Route path={AuthRoutes.logout} element= {<DashboardLayout selectedIndex={5}> <AddressComponent/> </DashboardLayout>}/> */}
       <Route path={AuthRoutes.AddNewAddress} element={<AddNewAddress />} />
       <Route path={AuthRoutes.Footer} element={<Footer />} />
