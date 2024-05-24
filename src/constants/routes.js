@@ -13,5 +13,6 @@ export const AuthRoutes = {
     manageAddress:"/manage-address",
     manageCards:"/manage-cards",
     customerSupport:'/customer-support',
+    CustomerServices:'/customer-support/:id',
     logout:"/logout"
 }

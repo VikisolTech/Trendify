@@ -81,21 +81,21 @@ const MyOrders = () => {
                                 {MyOder.myOrders}
                             </p></div>
                         <div className="border border-[#E6E6E6] w-full xl:hidden mb-4"></div>
-                            <div className='flex xl:hidden gap-2'>
-                                <div class="w-[100%] h-[54px] bg-white border border: 1px solid #DBDBDB rounded-tl">
-                                    <div className="flex justify-between items-center cursor-pointer">
-                                        <div className='flex items-center'>
-                                            <img src={NavContact.SearchTwo} alt="Search" className=' mt-[18px] ml-[30px]' />
-                                            <div class="text-neutral-900 text-base  font-family: Roboto; leading-tight mt-[18px] pl-3">Search Order</div>
-                                        </div>
+                        <div className='flex xl:hidden gap-2'>
+                            <div class="w-[100%] h-[54px] bg-white border border: 1px solid #DBDBDB rounded-tl">
+                                <div className="flex justify-between items-center cursor-pointer">
+                                    <div className='flex items-center'>
+                                        <img src={NavContact.SearchTwo} alt="Search" className=' mt-[18px] ml-[30px]' />
+                                        <div class="text-neutral-900 text-base  font-family: Roboto; leading-tight mt-[18px] pl-3">Search Order</div>
                                     </div>
-
                                 </div>
-                                <img src={MyOder.filters} className='cursor-pointer'/>
+
                             </div>
+                            <img src={MyOder.filters} className='cursor-pointer' />
+                        </div>
 
 
-                            <MyOrderLeftSide />
+                        <MyOrderLeftSide />
 
                     </Grid>
 

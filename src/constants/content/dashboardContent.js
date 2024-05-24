@@ -61,7 +61,10 @@ export const AddressContact = {
   ratings:"../assets/ratings.png",
   document:"../assets/document.png",
   truck:'../assets/truck-tick.svg',
-  Star:'../assets/star.png'
+  Star:'../assets/star.png',
+  Bag:'../assets/Bag.png',
+  Date:'../assets/Date_range_light.png',
+  qr:'../assets/qr 1.png'
 
 
  }

@@ -43,9 +43,9 @@ export function AddressComponent() {
 
     return (
         <>
-            {(!open || allowPopup)&& <div className=" xl:whiteCard h-fit flex flex-col xl:px-8 px-4 xl:pt-6 pt-14 pb-9 items-center w-full">
+            {(!open || allowPopup)&& 
+            <div className=" xl:whiteCard h-fit flex flex-col xl:px-8 px-4 xl:pt-6 pt-14 pb-9 items-center w-full">
                 <div className="w-full mb-4 flex">
-
                 <img className="lg:hidden w-auto" src={NavContact.Arrow}/>
                 <p className="font-poppins text-black text-xl  w-full lg:text-start text-center  xl:text-[28px] ">
                     {AddressContact.manageAddress}
@@ -76,7 +76,8 @@ export function AddressComponent() {
 
 
 
-            </div>}
+            </div>
+            }
             {open &&!allowPopup && <AddNewAddress handleClose={handleClose} />}
 
 
