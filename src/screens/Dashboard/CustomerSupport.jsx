@@ -4,10 +4,10 @@ import CustomerDetails from "./CustomerDetails";
 function CustomerSupport(){
     return(
         <>
-         <div className="xl:hidden block">
+         <div className="xl:hidden block  ">
             <MobilCustomerOrder/>
         </div>
-        <div className="xl:block hidden">
+        <div className="xl:block hidden w-[100%]">
               <CustomerDetails/>      
         
         </div>

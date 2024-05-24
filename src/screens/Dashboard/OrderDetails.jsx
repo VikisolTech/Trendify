@@ -8,7 +8,7 @@ export function OrderDetails() {
     return (
         <Grid container spacing={2} >
             <Grid item xs={12}>
-                <Card className="p-5">
+                <Card className="p-5 w-[100%]">
                   
                     <div className="xl:block hidden">
                         <div className="flex justify-between items-center mt-5">
