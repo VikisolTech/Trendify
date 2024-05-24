@@ -1,10 +1,18 @@
+import MobilCustomerOrder from "../../components/authDashboard/MobilCustomerOrder";
+import CustomerDetails from "./CustomerDetails";
+
 function CustomerSupport(){
     return(
-        <div className="flex justify-center mt-4">
-            <div className=" w-[500px] p-5 bg-white rounded-[10px] shadow border border-neutral-200">
-        <h1>Customer Support</h1>
+        <>
+         <div className="xl:hidden block">
+            <MobilCustomerOrder/>
         </div>
+        <div className="xl:block hidden">
+              <CustomerDetails/>      
+        
         </div>
+        </>
+       
     )
 }
 export default CustomerSupport; 

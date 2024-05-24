@@ -1,8 +1,12 @@
-import { Box, Card } from "@mui/material"
+import { Box, Card, Typography } from "@mui/material"
+import React, { useState } from 'react';
 import { AddressContact, MyOder, NavContact } from "../../constants/content/dashboardContent"
 import GenericButton from "./GenericButton"
+import Dropdown from "./DropDown";
 
-export function MobilOrderDetails({ data = {} }) {
+
+
+export function MobilCustomerOrder({ data = {} }) {
     const { title = "No Title", address = "No Address", number = "No Number" } = data;
 
 
@@ -14,6 +18,40 @@ export function MobilOrderDetails({ data = {} }) {
 
 
     const addressDetails = AddressList[0];
+    const [issue, setIssue] = useState('');
+    const [issueDetail, setIssueDetail] = useState('');
+    const [additionalIssue, setAdditionalIssue] = useState('');
+
+    const handleIssueChange = (event) => {
+        setIssue(event.target.value);
+    };
+
+    const handleIssueDetailChange = (event) => {
+        setIssueDetail(event.target.value);
+    };
+
+    const handleAdditionalIssueChange = (event) => {
+        setAdditionalIssue(event.target.value);
+    };
+
+    const issueOptions = [
+        { value: 'delivery', label: 'Delivery' },
+        { value: 'product', label: 'Product' },
+        { value: 'others', label: 'Others' },
+    ];
+
+    const issueDetailOptions = [
+        { value: 'late', label: 'Late Delivery' },
+        { value: 'damaged', label: 'Damaged Product' },
+        { value: 'missing', label: 'Missing Items' },
+    ];
+    const [dateOfBirth, setDateOfBirth] = useState('');
+
+    const handleDateOfBirthChange = (event) => {
+        setDateOfBirth(event.target.value);
+    };
+
+
 
     return (
         <>
@@ -21,10 +59,11 @@ export function MobilOrderDetails({ data = {} }) {
                 <div className="w-full mb-4 flex xl:hidden">
 
                     <img className="lg:hidden w-auto" src={NavContact.Arrow} />
-                    <p className="font-poppins text-black text-xl  w-full lg:text-start text-center  xl:text-[28px] ">
-                        {MyOder.myOrders}
+                    <p className="font-poppins text-black text-2xl  w-full lg:text-start text-center  xl:text-[28px] ">
+                        Trendify Support
                     </p></div>
                 <div className="border border-[#E6E6E6] w-full xl:hidden mb-4"></div>
+                <div class="text-zinc-900 text-[20px] font-semibold font-['Urbanist'] leading-snug">Product Details</div>
                 <Card className="p-5 mt-3">
                     <p className="text-zinc-500 font-medium  font-['Urbanist'] mb-3">Order ID :<span className=" text-[#808080] xt-zinc-500  font-medium font-['Roboto']"> RAJA7024393158PR1050</span></p>
                     <Box className="border border-spacing-2 mt-4 p-3  pt-2 pb-2rounded cursor-pointer xl:hidden">
@@ -36,15 +75,12 @@ export function MobilOrderDetails({ data = {} }) {
                                         Regular Fit Black
                                     </p>
                                     <p className="text-[#1A1A1A] text-[20px] font-medium font-['Roboto']">
-                                        Size : 42 <span className="pl-1">Qty : 1</span>
+                                        Size : 42
                                     </p>
-                                    <div className="flex gap-1">
-                                        <img src={MyOder.Star} width="20px" height="20px" className="rounded-[10px]" />
-                                        <img src={MyOder.Star} width="20px" height="20px" className="rounded-[10px]" />
-                                        <img src={MyOder.Star} width="20px" height="20px" className="rounded-[10px]" />
-                                        <img src={MyOder.Star} width="20px" height="20px" className="rounded-[10px]" />
-                                    </div>
-
+                                    <p className="pl-1">Qty : 1</p>
+                                    <p className="text-[#1A1A1A] text-[20px] font-medium font-['Roboto']">
+                                        Color :  <span className="pl-1">pink</span>
+                                    </p>
                                     <p className="text-[#1A1A1A] text-[20px] font-medium font-['Roboto'] mb-1">₹ 1,290
                                         <span className="p-1 text-[#FF0000]">-52%</span>
                                     </p>
@@ -135,15 +171,75 @@ export function MobilOrderDetails({ data = {} }) {
                         </div>
                         <div className="border border-[#E6E6E6] w-[90%] flex  mb-4 mt-[15px] relative left-[5%]"></div>
                         <div className="flex justify-between w-[85%]">
-                            <p className="text-black text-[22px]p-3 font-medium font-['Urbanist'] mr-[15px]">Total Amount</p>
+                            <p className="text-black text-[22px]p-3 font-medium font-['Urbanist'] ml-[25px]">Total Amount</p>
                             <p className="text-black text-[22px] font-medium font-['Urbanist'] ml-[30px]">340</p>
                         </div>
                     </div>
 
-                    <div className="flex justify-center items-center gap-2 mt-5">
-                        <GenericButton isSecondaryButton={true} label='Return Product' height={'h-[50px]'} width={'w-[150px]'} />
-                        <GenericButton label='Raise Ticket' height={'h-[50px]'} width={'w-[150px]'} />
-                    </div>
+                    <div class="text-zinc-900 text-[20px] font-semibold font-['Urbanist'] leading-snug mt-2" >Tell us more about your issue</div>
+
+                    <Card className="p-5 bg-white rounded-[10px] shadow border border-neutral-200 mt-4">
+                        <div className="mt-2">
+                            <div class="text-zinc-900 text-sm font-normal font-['Urbanist'] leading-tight">Select an issue</div>
+
+                            <Dropdown
+                                value={issue}
+                                handleChange={handleIssueChange}
+                                error={null}
+                                options={issueOptions}
+                            />
+                        </div>
+                        <div className="mt-2">
+                            <div class="text-zinc-900 text-sm font-normal font-['Urbanist'] leading-tight">Select issue details</div>
+                            <Dropdown
+
+                                value={issueDetail}
+                                handleChange={handleIssueDetailChange}
+                                error={null}
+                                options={issueDetailOptions}
+                            />
+                        </div>
+                        <div className="mt-2">
+                            <div class="text-zinc-900 text-sm font-normal font-['Urbanist'] leading-tight mb-2">Type your issues related to product, delivery, or others</div>
+                            <textarea
+                                value={additionalIssue}
+                                onChange={handleAdditionalIssueChange}
+                                className="h-[100px] border border-gray-300 rounded-md p-2 mt-1 w-full"
+                                placeholder="Enter your issue here..."
+                            />
+                        </div>
+
+
+                    </Card>
+                    <div class="text-zinc-900 text-base font-semibold font-['Urbanist'] leading-snug mt-2">How would you like to contact us?</div>
+                    <Card className="p-5 bg-white rounded-[10px] shadow border border-neutral-200 mt-4">
+                        <div className="mt-2">
+                            <div class="text-zinc-900 text-sm font-normal font-['Urbanist'] leading-tight">Select Language</div>
+
+                            <Dropdown
+                                value={issue}
+                                handleChange={handleIssueChange}
+                                error={null}
+                                options={issueOptions}
+                            />
+                        </div>
+
+                        <div className="mt-2">
+                            <div class="text-zinc-900 text-sm font-normal font-['Urbanist'] leading-tight">Type your issues related to product, delivery, or others</div>
+                            <input
+                                type="date"
+                                value={dateOfBirth}
+                                onChange={handleDateOfBirthChange}
+                                className="border border-gray-300 rounded-md p-2 mt-1 w-full"
+                            />
+                        </div>
+
+                        <div className="flex justify-center items-center gap-2 mt-5">
+                            <GenericButton isSecondaryButton={true} label='Chat with us' height={'h-[50px]'} width={'w-[150px]'} />
+                            <GenericButton label='Talk to us' height={'h-[50px]'} width={'w-[150px]'} />
+                        </div>
+
+                    </Card>
 
                 </Card>
 
@@ -154,4 +250,4 @@ export function MobilOrderDetails({ data = {} }) {
 
     )
 }
-export default MobilOrderDetails
+export default MobilCustomerOrder

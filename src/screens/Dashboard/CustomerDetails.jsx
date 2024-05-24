@@ -3,12 +3,13 @@ import GenericButton from "../../components/authDashboard/GenericButton";
 import { AddressContact, MyOder } from "../../constants/content/dashboardContent";
 import OrderDetailsForm from "../../components/authDashboard/OrderDetailsForm";
 import MobilOrderDetails from "../../components/authDashboard/MobilOrderDetails";
+import CustomerDetailsForm from "../../components/authDashboard/CustomerDetailsForm";
 
-export function OrderDetails() {
+export function CustomerDetails() {
     return (
         <Grid container spacing={2} >
             <Grid item xs={12}>
-                <Card className="p-5">
+                <Card className="p-5 w-[100%]">
                   
                     <div className="xl:block hidden">
                         <div className="flex justify-between items-center mt-5">
@@ -16,13 +17,9 @@ export function OrderDetails() {
                             <div className="flex gap-3">
                                 <div className='flex'>
                                     <img src={MyOder.document} alt="Search" className='absolute mt-[13px]  ml-1' />
-                                    <GenericButton isSecondaryButton={true} label="Invoice" height={'h-[40px]'} width={'w-[100px]'} />
+                                    <GenericButton isSecondaryButton={true} label="Download Invoice" height={'h-[40px]'} width={'w-[180px]'} />
                                 </div>
-                                <div className="flex flex-row-reverse ">
-                                    <GenericButton label='Track order' height={'h-[40px]'} width={'w-[140px]'} />
-                                    <img src={AddressContact.LocationImg} alt="Search" className='absolute mt-[12px] mr-2' />
-
-                                </div>
+                               
                             </div>
 
 
@@ -33,7 +30,7 @@ export function OrderDetails() {
                         </div>
                         <div className="border border-[#E6E6E6] w-full flex mb-4 mt-[40px]"></div>
 
-                        <div class=" h-[181.36px] pb-7 justify-center items-start inline-flex relative mt-7">
+                        <div class=" h-[181.36px] pb-7 justify-center items-start inline-flex relative mt-7 w-[100%]">
                             <div class="w-[78%] h-0.5 bg-gray-300 absolute top-[67px] left-[10%] border-[3px]"></div>
                             <div class="w-[268.50px] h-[121px] relative">
                                 <div class="w-[26px] h-[26px] left-[91px] top-[55px] absolute">
@@ -76,10 +73,7 @@ export function OrderDetails() {
                                 </div>
                             </div>
                         </div>
-                        <OrderDetailsForm />
-                    </div>
-                    <div className="xl:hidden block">
-                        <MobilOrderDetails />
+                       <CustomerDetailsForm/>
                     </div>
 
                 </Card>
@@ -90,4 +84,4 @@ export function OrderDetails() {
         </Grid>
     )
 }
-export default OrderDetails;
+export default CustomerDetails;
