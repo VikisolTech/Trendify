@@ -161,7 +161,7 @@ function CustomerDetailsForm() {
                         type="date"
                         value={dateOfBirth}
                         onChange={handleDateOfBirthChange}
-                        className="border border-gray-300 rounded-md p-2 mt-1 h-[56px] mt-4 w-full"
+                        className="border border-gray-300 rounded-md p-2 h-[56px] mt-4 w-full"
                     />
                 </div>
             </div>
