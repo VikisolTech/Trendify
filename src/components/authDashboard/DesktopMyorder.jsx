@@ -3,7 +3,8 @@ import { MyOder } from "../../constants/content/dashboardContent";
 
 function DesktopMyorder({ data }) {
 
-    return <Box className="border border-spacing-2 mt-4 p-2  rounded cursor-pointer">
+    return <Box  onClick={()=>{window.location.href='/my-order/:id'}} 
+    className="border border-spacing-2 mt-4 p-2  rounded cursor-pointer hidden xl:block">
         {data.isRefundCompleted && <div className="flex">
             <p className="text-green-600 text-sm font-medium font-['Roboto'] mb-3">Refund Completed <span className=" text-[#878787] xt-zinc-500 text-xs font-medium font-['Roboto']"> (Refund ID: 74255454)</span></p>
 

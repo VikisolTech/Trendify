@@ -1,6 +1,7 @@
 export const AddressContact = {
     AddressType:"Add New Address",
     AdressLocationImg: "../assets/Location.png",
+   LocationImg: "../assets/Location-2.png",
     plusImage: "../assets/plus.png",
     manageAddress:"Manage Saved Address",
     usemylocation:'Use my location',
@@ -35,6 +36,8 @@ export const AddressContact = {
   person:'../assets/person.png',
   Arrow:'../assets/arrow.png',
   searchbar:"../assets/searchbar.png",
+  SearchTwo:'../assets/Search-2.png'
+
  }
  export const personalInfo = {
   Profile :"../assets/Profile.png",
@@ -52,5 +55,13 @@ export const AddressContact = {
   greenest:'../assets/greendot.png',
   star:"../assets/starimage.png",
   red:"../assets/red rounded.png",
+  myOrders:"My Orders",
+  filters: '../assets/Button-filitter.png',
+  Chevron:"../assets/Chevron.png",
+  ratings:"../assets/ratings.png",
+  document:"../assets/document.png",
+  truck:'../assets/truck-tick.svg',
+  Star:'../assets/star.png'
+
 
  }

@@ -9,6 +9,7 @@ export const AuthRoutes = {
     Footer: "/footer",
     personalInformation:'/personal-information',
     myOrder:"/my-order",
+    orderDetails:"/my-order/:id",
     manageAddress:"/manage-address",
     manageCards:"/manage-cards",
     customerSupport:'/customer-support',
