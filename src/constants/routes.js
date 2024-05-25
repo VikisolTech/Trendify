@@ -12,7 +12,7 @@ export const AuthRoutes = {
     orderDetails:"/my-order/:id",
     manageAddress:"/manage-address",
     manageCards:"/manage-cards",
-    customerSupport:'/customer-support',
-    CustomerServices:'/customer-support/:id',
+    customerSupport:'/customer-support/:id',
+    CustomerServices:'/customer-support',
     logout:"/logout"
 }

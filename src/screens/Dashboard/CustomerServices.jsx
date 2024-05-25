@@ -1,3 +1,4 @@
+import DashboardCustomerSupport from "../../components/authDashboard/DashboardCustomerSupport";
 import MobilSupportOrder from "../../components/authDashboard/MobilSupportOrder";
 
 
@@ -8,10 +9,10 @@ function CustomerServices(){
             <MobilSupportOrder/>
 
         </div>
-        {/* <div className="xl:block hidden w-[100%]">
-              <CustomerDetails/>      
+        <div className="xl:block hidden w-[100%]">
+              <DashboardCustomerSupport/>      
         
-        </div> */}
+        </div>
         </>
        
     )
