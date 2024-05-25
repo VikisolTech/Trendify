@@ -1,5 +1,18 @@
+
+
 export const AuthRoutes = {
     loginPage:"/",
     loginOtp :"/login-otp",
-    register :"/register"
+    register :"/register",
+    Address: "/address",
+    AddNewAddress:'/AddNewAddress',
+    Footer: "/footer",
+    personalInformation:'/personal-information',
+    myOrder:"/my-order",
+    orderDetails:"/my-order/:id",
+    manageAddress:"/manage-address",
+    manageCards:"/manage-cards",
+    customerSupport:'/customer-support/:id',
+    CustomerServices:'/customer-support',
+    logout:"/logout"
 }
